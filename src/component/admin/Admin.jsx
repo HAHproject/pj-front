@@ -1,7 +1,12 @@
 import { useState } from "react"
 import { Category } from "./Category"
+import { useDispatch } from "react-redux"
+import { setPage } from "../../feature/adminPageSlice"
+import AdminPage from "./AdminPage"
 
 const Admin = () => {
+
+    const dispatch = useDispatch()
 
 
     // 아마 헤더는 자동으로 등록이 되지만, 내부적으로 사용할 사이드 바를 구현해야하고,
@@ -13,25 +18,27 @@ const Admin = () => {
 
 
     //내가 사용할 페이지를 카테고리화 하여서, 어떤 페이지를 보여줄지 결정하고 싶음.
-    const [category,setCategory] = useState(Category.방등록허가페이지) 
+    // const [category, setCategory] = useState(Category.신청페이지)
 
-    console.log("몇번 불리고 있는지 체크하는 친구 from Admin",Category.로그페이지)
+    console.log("몇번 불리고 있는지 체크하는 친구 from Admin")
 
     Object.keys(Category).map((menu) => {
-        return <button onClick={()=> onClickHandler(menu)}> {menu} </button>
+        return <button onClick={() => onClickHandler(menu)}> {menu} </button>
     })
 
-    
 
-    
+
+
 
 
     const onClickHandler = (data) => {
-            setCategory(data)
+        // setCategory(data)
+
+        dispatch(setPage(data))
     }
 
     return (
-        <>      
+        <>
             {/* 이거 뭔가 격하게 반복작업임 .. 충분히 list 돌릴 수 있을 듯. 
                 대충 카테고리 델꼬와서 맵으로 버튼 생산 하면 됨. 그 밑도 대충 동일함 내 예상으로는.
             */}
@@ -41,15 +48,27 @@ const Admin = () => {
 
                 이럴때는 여기에서 리덕스 값을 세팅하고, 컴포넌트를 하나 더 들어가서 그 속에서 관리하면 됨.
             */}
+            <div>
 
-        {Object.keys(Category).map((menu) => {
-             return <button key={menu} onClick={()=> onClickHandler(menu)}> {menu} </button>
-         })}
+                <div>
+                    {Object.keys(Category).map((menu) => {
+                        return <button key={menu} onClick={() => onClickHandler(menu)}> {menu} </button>
+                    })}
+                </div>
 
-        {category === Category.로그페이지 && <p>1</p>}
-        {category === Category.방등록허가페이지 && <p>2</p>}
-        {category === Category.신청페이지 && <p>3</p>}
-        {category === Category.통계페이지 && <p>4</p>}
+
+                {/* <div>
+                    {category === Category.로그페이지 && <p>1</p>}
+                    {category === Category.방등록허가페이지 && <p>2</p>}
+                    {category === Category.신청페이지 && <p>3</p>}
+                    {category === Category.통계페이지 && <p>4</p>}
+                </div> */}
+
+
+                <div>
+                    <AdminPage></AdminPage>
+                </div>
+            </div>
         </>
     )
 

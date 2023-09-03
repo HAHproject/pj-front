@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 const Signup = () => {
     //회원가입 정보
