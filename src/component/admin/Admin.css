@@ -15,12 +15,28 @@
 
 }
 
+/* 이게 애니메이션을 주긴 함 ... */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
 
 ._button-list {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     border-radius: 5px;
+
+    /* 애니메이션을 줄 수 있음.. 근데 비용이 좀 비싸보임 */
+    /* transition: all 0.5s ease; */
+    /* animation: slideIn 3s ease;  */
 
 
 }

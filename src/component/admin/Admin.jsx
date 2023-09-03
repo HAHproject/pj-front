@@ -4,27 +4,9 @@ import { useDispatch } from "react-redux"
 import { setPage } from "../../feature/adminPageSlice"
 import AdminPage from "./AdminPage"
 import './Admin.css'
+import AdminMenuBox from "./AdminMenuBox"
 
 const Admin = () => {
-
-    const dispatch = useDispatch()
-
-    const [stickyTop, setStickyTop] = useState(0);
-
-    console.log("테스트")
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setStickyTop(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
 
 
     // 아마 헤더는 자동으로 등록이 되지만, 내부적으로 사용할 사이드 바를 구현해야하고,
@@ -37,14 +19,6 @@ const Admin = () => {
 
     //내가 사용할 페이지를 카테고리화 하여서, 어떤 페이지를 보여줄지 결정하고 싶음.
     // const [category, setCategory] = useState(Category.신청페이지)
-
-    console.log("몇번 불리고 있는지 체크하는 친구 from Admin")
-
-
-    const onClickHandler = (data) => {
-
-        dispatch(setPage(data))
-    }
 
     return (
         <>
@@ -69,11 +43,7 @@ const Admin = () => {
             <div className="main-box">
 
                 <div className="_left-box">
-                    <div className="_button-list" style={{ marginTop: stickyTop + 'px' }}>
-                        {Object.keys(Category).map((menu) => {
-                            return <p className="_button" key={menu} onClick={() => onClickHandler(menu)}> {menu} </p>
-                        })}
-                    </div>
+                    <AdminMenuBox />
                 </div>
 
                 <div className="_right-box">
