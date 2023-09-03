@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Category } from "./Category"
 import { useDispatch } from "react-redux"
 import { setPage } from "../../feature/adminPageSlice"
@@ -8,6 +8,23 @@ import './Admin.css'
 const Admin = () => {
 
     const dispatch = useDispatch()
+
+    const [stickyTop, setStickyTop] = useState(0);
+
+    console.log("테스트")
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setStickyTop(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
 
 
     // 아마 헤더는 자동으로 등록이 되지만, 내부적으로 사용할 사이드 바를 구현해야하고,
@@ -43,7 +60,7 @@ const Admin = () => {
             <div className="main-box">
 
                 <div className="_left-box">
-                    <div className="_button-list">
+                    <div className="_button-list" style={{ marginTop: stickyTop + 'px' }}>
                         {Object.keys(Category).map((menu) => {
                             return <p className="_button" key={menu} onClick={() => onClickHandler(menu)}> {menu} </p>
                         })}

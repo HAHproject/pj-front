@@ -8,8 +8,10 @@
 
 ._left-box {
     flex: 1;
+    position: sticky;
     min-width: 200px;
     height: auto;
+    top: 0;
 
 }
 
