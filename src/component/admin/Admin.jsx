@@ -3,6 +3,7 @@ import { Category } from "./Category"
 import { useDispatch } from "react-redux"
 import { setPage } from "../../feature/adminPageSlice"
 import AdminPage from "./AdminPage"
+import './Admin.css'
 
 const Admin = () => {
 
@@ -22,17 +23,8 @@ const Admin = () => {
 
     console.log("몇번 불리고 있는지 체크하는 친구 from Admin")
 
-    Object.keys(Category).map((menu) => {
-        return <button onClick={() => onClickHandler(menu)}> {menu} </button>
-    })
-
-
-
-
-
 
     const onClickHandler = (data) => {
-        // setCategory(data)
 
         dispatch(setPage(data))
     }
@@ -48,25 +40,20 @@ const Admin = () => {
 
                 이럴때는 여기에서 리덕스 값을 세팅하고, 컴포넌트를 하나 더 들어가서 그 속에서 관리하면 됨.
             */}
-            <div>
+            <div className="main-box">
 
-                <div>
-                    {Object.keys(Category).map((menu) => {
-                        return <button key={menu} onClick={() => onClickHandler(menu)}> {menu} </button>
-                    })}
+                <div className="_left-box">
+                    <div className="_button-list">
+                        {Object.keys(Category).map((menu) => {
+                            return <p className="_button" key={menu} onClick={() => onClickHandler(menu)}> {menu} </p>
+                        })}
+                    </div>
                 </div>
 
-
-                {/* <div>
-                    {category === Category.로그페이지 && <p>1</p>}
-                    {category === Category.방등록허가페이지 && <p>2</p>}
-                    {category === Category.신청페이지 && <p>3</p>}
-                    {category === Category.통계페이지 && <p>4</p>}
-                </div> */}
-
-
-                <div>
-                    <AdminPage></AdminPage>
+                <div className="_right-box">
+                    <div className="_right-list">
+                        <AdminPage ></AdminPage>
+                    </div>
                 </div>
             </div>
         </>

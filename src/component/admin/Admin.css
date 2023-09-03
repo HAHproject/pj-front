@@ -1,0 +1,50 @@
+.main-box {
+    display: flex;
+    margin-top: 200px;
+    width: 100%;
+
+
+}
+
+._left-box {
+    flex: 1;
+    min-width: 200px;
+    height: auto;
+
+}
+
+
+._button-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+
+
+}
+
+._button {
+    margin: 50px;
+    width: 50%;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 10px;
+
+}
+
+._button:hover {
+    color: red;
+}
+
+
+._right-box {
+    flex: 6;
+    height: auto;
+    border: 1px solid black
+}
+
+._right-list {
+    border: 1px solid red
+}
