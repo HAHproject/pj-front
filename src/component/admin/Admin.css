@@ -1,6 +1,6 @@
 .main-box {
     display: flex;
-    margin-top: 200px;
+    margin-top: 100px;
     width: 100%;
 
 
@@ -8,7 +8,6 @@
 
 ._left-box {
     flex: 1;
-    position: sticky;
     min-width: 200px;
     height: auto;
     top: 0;
@@ -42,13 +41,15 @@
 }
 
 ._button {
-    margin: 50px;
+    font-weight: bold;
+    margin: 20px;
     width: 50%;
     color: black;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
-    border: 1px solid black;
     padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 
 }
 
@@ -58,8 +59,9 @@
 
 
 ._right-box {
+    overflow-y: scroll;
     flex: 6;
-    height: auto;
+    height: 89vh;
     border: 1px solid black
 }
 
