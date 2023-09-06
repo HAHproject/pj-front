@@ -18,7 +18,7 @@ const MyPoints = () => {
                 <tbody>
                 <tr key={loginInfo.userId}>
                     <td>
-                        <input
+                        <p
                             type="text" readOnly={true}
                             value={loginInfo.userName}
                         />
