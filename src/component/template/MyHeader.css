@@ -25,6 +25,9 @@
     font-size: 1.5em;
     color: aliceblue;
     font-family: 'CustomFont', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .section-in {

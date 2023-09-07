@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom";
 import "./MyHeader.css"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import NormalHeader from "./NormalHeader";
 import PhoneHeader from "./PhoneHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { setWidthSize } from "../../feature/widthSizeSlice";
 
 
 const MyHeader = () => {
 
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  console.log("재실행여부")
+  const dispatch = useDispatch()
 
-  const handleResize = () => {
-    setIsSmallScreen(window.innerWidth < 664); // 예: 600px 이하로 작으면 작은 화면으로 간주
-  };
+  console.log("재실행여부")
+  const { isSmallScreen } = useSelector((state) => state.widthSizes)
+
+
 
   useEffect(() => {
+
+    const handleResize = () => {
+      dispatch(setWidthSize(window.innerWidth < 664 ? true : false))
+    };
+
 
     // 컴포넌트가 마운트될 때 한 번 실행하고, 화면 크기 변화를 감지하는 리스너 등록
     handleResize();
@@ -24,7 +30,7 @@ const MyHeader = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

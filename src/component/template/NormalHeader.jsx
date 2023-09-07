@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import './MyHeader.css'
 
+
 const NormalHeader = () => {
 
 
@@ -9,7 +10,7 @@ const NormalHeader = () => {
     return <div className="my-header">
         <div className="section" >
             <div className="section-in">
-                <a className="logo" >저기어때.</a>
+                <Link to='/main' className="logo" >저기어때.</Link>
             </div>
 
             <div className="section-in">

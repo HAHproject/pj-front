@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Category } from "./Category"
 import { setPage } from "../../feature/adminPageSlice";
