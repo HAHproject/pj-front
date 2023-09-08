@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import AdminPage from "./AdminPage"
 import './Admin.css'
 import AdminMenuBox from "./AdminMenuBox"
+import { Outlet } from "react-router"
 
 const Admin = () => {
 
@@ -49,7 +50,7 @@ const Admin = () => {
 
                 <div className="_right-box">
                     <div className="_right-list">
-                        <AdminPage ></AdminPage>
+                        <Outlet></Outlet>
                     </div>
                 </div>
             </div>
