@@ -32,7 +32,6 @@
 
 .section-in {
     padding: 21px 10%;
-    text-align: center;
 
 }
 
@@ -66,6 +65,7 @@
     color: white;
     font-weight: normal;
     font-size: 30px;
+    font-family: '맑은고딕';
 }
 
 .section-phone {

@@ -8,6 +8,7 @@ import ApplyPage from "../component/admin/ApplyPage"
 import LogPage from "../component/admin/LogPage"
 import RoomPage from "../component/admin/RoomPage"
 import StatisticsPage from "../component/admin/StatisticsPage"
+import ApplyDetailPage from "../component/admin/ApplyDetailPage"
 
 
 
@@ -21,6 +22,9 @@ const MyRoutes = () => {
                 {/* 템플릿이 적용될 파츠들.. 여기서 고민이 몇가지 있다. */}
                 <Route path="/admin" element={<Admin></Admin>}>
                     <Route path="apply" element={<ApplyPage></ApplyPage>} />
+                    <Route path="apply/:id" element={<ApplyDetailPage />} />
+                    {/* 이거 방식이 조금 많이 불편함 .. 이건 고민 좀 한다음 결정해야할 듯 .. 내부적으로 들어가게 하고싶어도 admin 이 아웃렛을 들고있어서 불가능함. */}
+
                     <Route path="statistics" element={<StatisticsPage></StatisticsPage>} />
                     <Route path="room" element={<RoomPage></RoomPage>} />
                     <Route path="log" element={<LogPage></LogPage>} />

@@ -7,6 +7,8 @@ import StatisticsPage from "./StatisticsPage"
 
 const AdminPage = () => {
 
+    // 안쓰게 되었음. 나중에 생각나면 개조해서 쓸듯.
+
 
     const { nowPage } = useSelector((state) => state.adminPages)
 

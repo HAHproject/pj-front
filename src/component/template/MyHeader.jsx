@@ -18,7 +18,7 @@ const MyHeader = () => {
   useEffect(() => {
 
     const handleResize = () => {
-      dispatch(setWidthSize(window.innerWidth < 664 ? true : false))
+      dispatch(setWidthSize(window.innerWidth < 900 ? true : false))
     };
 
 

@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import './MyHeader.css'
 
 
 const NormalHeader = () => {
+
+    const location = useLocation();
+    const pathSegments = location.pathname.split('/');
+    const firstSegment = pathSegments[1];
 
 
 
@@ -38,7 +42,8 @@ const NormalHeader = () => {
         </div>
 
         <div className="section-2">
-            <h2 className="more">더보기</h2>
+            {firstSegment === 'admin' && <h2 className="more"> 관리자 페이지</h2>}
+            {firstSegment === 'owner' && <h2 className="more"> 영업 페이지</h2>}
         </div>
 
 

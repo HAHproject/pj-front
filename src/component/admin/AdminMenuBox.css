@@ -1,8 +1,7 @@
 ._button-list {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 5px;
+
 
     /* 애니메이션을 줄 수 있음.. 근데 비용이 좀 비싸보임 */
     /* transition: all 0.5s ease; */
@@ -12,15 +11,16 @@
 }
 
 ._button {
-    font-weight: bold;
-    margin: 20px;
+    font-weight: normal;
+    margin: 8px;
     width: 70%;
-    color: black;
+    color: rgb(46, 45, 45);
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
     padding: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; */
+    text-decoration-line: none;
 
 }
 
