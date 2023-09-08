@@ -27,6 +27,7 @@ const MyRoutes = () => {
 
                 </Route>
                 <Route path="/owner" element={<Owner></Owner>} />
+
             </Route>
 
         </Routes>

@@ -1,7 +1,10 @@
 import { useDispatch } from "react-redux";
 import { Category } from "./Category"
 import { setPage } from "../../feature/adminPageSlice";
+
 import { Link } from "react-router-dom";
+import '../admin/AdminMenuBox.css'
+
 
 
 const AdminMenuBox = () => {
