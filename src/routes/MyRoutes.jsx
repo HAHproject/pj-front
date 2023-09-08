@@ -17,6 +17,7 @@ const MyRoutes = () => {
                 {/* 템플릿이 적용될 파츠들.. 여기서 고민이 몇가지 있다. */}
                 <Route path="/admin" element={<Admin></Admin>} />
                 <Route path="/owner" element={<Owner></Owner>} />
+
             </Route>
 
         </Routes>
