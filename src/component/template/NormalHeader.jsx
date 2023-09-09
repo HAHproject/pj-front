@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
-import './MyHeader.css'
+import './NormalHeader.css'
+import { useSelector } from "react-redux";
 
 
 const NormalHeader = () => {
@@ -8,18 +9,21 @@ const NormalHeader = () => {
     const pathSegments = location.pathname.split('/');
     const firstSegment = pathSegments[1];
 
+    const { scroll } = useSelector(state => state.scrolls)
 
 
 
-    return <div className="my-header">
-        <div className="section" >
+
+
+    return <div className="my_header">
+        <div className={`section ${scroll ? 'scroll' : ''}`} >
             <div className="section-in">
-                <Link to='/main' className="logo" >저기어때.</Link>
+                <Link to='/main' className={`logo ${scroll ? 'scroll' : ''}`} >저기어때.</Link>
             </div>
 
             <div className="section-in">
-                <div className="fast-menu" >
-                    <div >
+                <div className={`fast_menu ${scroll ? 'scroll' : ''}`} >
+                    <div style={{ color: "black" }}>
                         <Link to="/admin" className="header-button" >어드민 페이지</Link>
                     </div>
                     <div >

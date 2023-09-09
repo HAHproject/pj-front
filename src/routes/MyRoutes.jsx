@@ -28,7 +28,6 @@ const MyRoutes = () => {
                     <Route path="statistics" element={<StatisticsPage></StatisticsPage>} />
                     <Route path="room" element={<RoomPage></RoomPage>} />
                     <Route path="log" element={<LogPage></LogPage>} />
-
                 </Route>
                 <Route path="/owner" element={<Owner></Owner>} />
 

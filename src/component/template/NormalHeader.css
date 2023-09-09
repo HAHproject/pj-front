@@ -1,0 +1,83 @@
+.my_header {
+    height: 211px;
+    background: #f7323f;
+
+}
+
+.section {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 0 10%;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 72px;
+    background: #f7323f;
+    transition: 0.4s;
+}
+
+.section.scroll {
+    background: #fff;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo {
+    font-weight: bold;
+    line-height: 1;
+    font-size: 1.5em;
+    color: aliceblue;
+    font-family: 'CustomFont', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo.scroll {
+    color: red;
+}
+
+.section-in {
+    padding: 21px 10%;
+
+}
+
+.header-button {
+    text-decoration-line: none;
+    font-weight: normal;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.section-2 {
+    display: block;
+    padding: 72px 0 0 10%;
+}
+
+.more {
+    color: white;
+    font-weight: normal;
+    font-size: 30px;
+    font-family: '맑은고딕';
+}
+
+.fast_menu {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    align-items: center;
+
+}
+
+.fast_menu.scroll a {
+    color: rgba(0, 0, 0, 0.87);
+
+}
+
+
+.fast_menu a {
+    color: rgba(255, 255, 255, 0.8);
+}
