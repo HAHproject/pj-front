@@ -10,6 +10,11 @@ const NormalHeader = () => {
     const firstSegment = pathSegments[1];
 
     const { scroll } = useSelector(state => state.scrolls)
+    console.log('랜더링 테스트')
+
+    const test = () => {
+        console.log('테스트중입니다')
+    }
 
 
 
@@ -24,7 +29,7 @@ const NormalHeader = () => {
             <div className="section-in">
                 <div className={`fast_menu ${scroll ? 'scroll' : ''}`} >
                     <div style={{ color: "black" }}>
-                        <Link to="/admin" className="header-button" >어드민 페이지</Link>
+                        <Link to="/admin" className="header-button" onMouseEnter={() => test()} >어드민 페이지</Link>
                     </div>
                     <div >
                         <Link to="/admin" className="header-button" >어드민 페이지</Link>

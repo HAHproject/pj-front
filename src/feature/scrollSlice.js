@@ -8,8 +8,6 @@ export const scrollSlice = createSlice({
     reducers: {
         setScroll: (state, actions) => {
             state.scroll = actions.payload
-
-            console.log(state.scroll)
         },
 
     },
