@@ -12,12 +12,11 @@
 
 ._button {
     font-weight: normal;
-    margin: 8px;
+    margin: 0px 0px 28px;
     width: 70%;
     color: rgb(46, 45, 45);
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
-    padding: 10px;
     /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 10px; */
     text-decoration-line: none;

@@ -2,8 +2,11 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
     padding-top: 50px;
-    width: auto;
-    margin: 0px 10% 0px 10%;
+    /* width: auto;
+    margin: 0px 10% 0px 10%; */
+
+    width: 1024px;
+    margin: 0px auto;
 
 
 }
@@ -21,8 +24,7 @@
 ._left-box {
     min-width: 200px;
     height: auto;
-    top: 0;
-    padding-left: 30px;
+    padding-left: 31px;
 
 }
 
@@ -42,8 +44,12 @@
 
 
 ._right-box {
-    overflow-y: scroll;
-    height: 89vh;
+
+    /* overflow-y: scroll;
+    height: 89vh; */
+
+    height: auto;
+
     border: 1px solid black
 }
 
