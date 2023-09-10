@@ -1,11 +1,12 @@
 
 import './styles/App.css';
-import Login from "./components/Login/Login";
+import MainLogin from "./components/mainLogin/MainLogin";
+
 
 function App() {
   return (
     <div id ='wrap'>
-        <Login />
+        <MainLogin />
     </div>);
 }
 

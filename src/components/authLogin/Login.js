@@ -4,10 +4,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginCheckAction } from "../../ducks/loginCheck";
 import { userLogin } from "../../common/api/apiPostService";
-import classes from "../../styles/Login/login.module.css";
-import imgLink from "../../common/img/mainLogo.png";
+import classes from "../../styles/authLogin/login.module.css";
+import logoLink from "../../common/img/mainLogo.png";
 
-const Signup = () => {
+const Login = () => {
     const nav = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -37,11 +37,11 @@ const Signup = () => {
     return (
         <div className={classes.container}>
             <div className={classes.img}>
-                <img src={imgLink} alt="Login" />
+                <img src={logoLink} alt="Login" />
             </div>
             <div className={classes["login-content"]}>
                 <form>
-                    <h2 className={classes.title}>Login</h2>
+                    <h2 className={classes.title}>Auth Login</h2>
                     <div className={`${classes["input-div"]} ${classes.one}`}>
                         <div className={classes.i}>
                             <i className="fas fa-user"></i>
@@ -87,5 +87,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
-
+export default Login;

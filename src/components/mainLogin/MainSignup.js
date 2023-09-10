@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import classes from "../../styles/Login/login.module.css";
+import classes from "../../styles/authLogin/login.module.css";
 import { userSignup } from "../../common/api/apiPostService";
 import imgLink from "../../common/img/mainLogo.png";
 
-const Signup = () => {
+const MainSignup = () => {
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     const nav = useNavigate();
     const [users, setUsers] = useState({
@@ -26,7 +26,7 @@ const Signup = () => {
                 try {
                     e.preventDefault();
                     userSignup(users.id, users.password, users.name);
-                    nav("/");
+                    nav("/mainLogin");
                     alert("회원가입 성공");
                 } catch (error) {
                     console.log(error.response.data);
@@ -125,4 +125,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default MainSignup;

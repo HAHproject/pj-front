@@ -1,0 +1,90 @@
+.backGround {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+    max-width: 100%;
+    padding: 10%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.authLogin {
+    display:  flex;
+    justify-content: center;
+    font-size: 24px;
+    background-color: yellow;
+    padding: 15px;
+    width: 425px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.input {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 17px;
+    background-color: white;
+    outline: none;
+    width: 425px;
+    margin-bottom: 10px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    background-color: #f44250;
+    width: 425px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.box1 {
+    display: flex;
+    padding: 15px 0 ;
+    width: 425px;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+}
+
+.section1 {
+    flex: 45;
+    display: flex;
+    justify-content: space-around;
+}
+
+.section2 {
+    flex: 10;
+    display: flex;
+    justify-content: space-around;
+}
+
+.section3 {
+    flex: 45;
+    display: flex;
+    justify-content: space-around;
+}
+

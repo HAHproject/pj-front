@@ -59,11 +59,11 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* styles.css 또는 styles.module.css */
+
 .horizontal-buttons {
     list-style: none;
     display: flex;
-    justify-content: space-between; /* 버튼들을 가로로 고르게 배치 */
+    justify-content: space-between;
     padding: 0;
 }
 

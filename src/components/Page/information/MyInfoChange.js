@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserInfo } from "../../../common/api/apiUpdateService";
+import {User} from "../../data/DataList";
 
 const MyInfoChange = () => {
     const loginInfo = useSelector((state) => state.loginCheck.loginInfo);
@@ -41,11 +42,12 @@ const MyInfoChange = () => {
                 </tr>
                 </thead>
                 <tbody>
-                <tr key={loginInfo.userId}>
+
+                <tr key = {`${User.userId}`}>
                     <td>
                         <input
                             type="text"
-                            value={newUserName}
+                            value={User.name}
                             onChange={(e) => setNewUserName(e.target.value)}
                         />
                     </td>

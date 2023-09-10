@@ -1,8 +1,11 @@
 import React from "react";
 import {useSelector} from "react-redux";
+import {key} from "localforage";
+import {User} from "../../data/DataList";
 
 const MyPoints = () => {
     const loginInfo = useSelector((state) => state.loginCheck.loginInfo);
+
 
 
     return (
@@ -16,17 +19,18 @@ const MyPoints = () => {
                 </tr>
                 </thead>
                 <tbody>
-                <tr key={loginInfo.userId}>
+                {/*<tr key={loginInfo.userId}>*/}
+                <tr key = {`${User.userId}`}>
                     <td>
-                        <p
+                        <input
                             type="text" readOnly={true}
-                            value={loginInfo.userName}
+                            value={User.name}
                         />
                     </td>
                     <td>
                         <input
                             type="text" readOnly={true}
-                            value={loginInfo.userPoint}
+                            value={User.point}
                         />
                     </td>
                 </tr>

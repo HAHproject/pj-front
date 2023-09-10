@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {apiGetresult} from "../../../common/api/apiGetService";
+import Reservation from "../layout/Reservation";
+import {myReservation} from "../../data/DataList";
 
 const MyReservationInfo = () => {
 
@@ -34,14 +36,31 @@ const MyReservationInfo = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {reservationData.map((item) => (
-                    <tr key={item.rId}>
-                        <td>{item.amenityName}</td>
-                        <td>{item.roomType}</td>
-                        <td>{item.rDate}</td>
-                        <td>{item.rId}</td>
-                    </tr>
-                ))}
+
+                {myReservation.map((data)=> <tr key={data.rId}>
+                <td>{data.name}</td>
+                <td>{data.rType}</td>
+                <td>{data.rDate}</td>
+                <td>{data.rPrice}</td>
+                <td>{data.rId}</td>
+                </tr> )}
+
+
+                {/*<tr key={myReservation.rId}>*/}
+                {/*    <td>{myReservation.name}</td>*/}
+                {/*    <td>{myReservation.rType}</td>*/}
+                {/*    <td>{myReservation.rDate}</td>*/}
+                {/*    <td>{myReservation.rPrice}</td>*/}
+                {/*    <td>{myReservation.rId}</td>*/}
+                {/*</tr>*/}
+                {/*{reservationData.map((item) => (*/}
+                {/*    <tr key={item.rId}>*/}
+                {/*        <td>{item.amenityName}</td>*/}
+                {/*        <td>{item.roomType}</td>*/}
+                {/*        <td>{item.rDate}</td>*/}
+                {/*        <td>{item.rId}</td>*/}
+                {/*    </tr>*/}
+                {/*))}*/}
                 </tbody>
             </table>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { apiGetresult } from "../../../common/api/apiGetService";
 import {Link} from "react-router-dom";
+import {RoomList} from "../../data/DataList";
 
 const Info = () => {
     const [roomData, setRoomData] = useState([]);
@@ -27,20 +28,22 @@ return (
         <table>
             <thead>
             <tr>
-                <th>Name</th>
+                <th>RoomName</th>
                 <th>Price</th>
                 <th>Date</th>
                 <th>AmenityName</th>
+                <th>RoomInfo</th>
                 <th>...</th>
             </tr>
             </thead>
             <tbody>
-            {roomData.map((item) => (
-                <tr key={item.roomId}>
-                    <td>{item.roomName}</td>
-                    <td>{item.date}</td>
-                    <td>{item.amenityName}</td>
-                    <Link to={`/info/${item.amenityId}`}>{item.roomInfo}</Link>
+            {RoomList.map((data) => (
+                <tr key={data.rId}>
+                    <td>{data.name}</td>
+                    <td>{data.price}</td>
+                    <td>{data.date}</td>
+                    <td>{data.amenityName}</td>
+                    <Link to={`/roomInfo`}>{data.rId}</Link>
                 </tr>
             ))}
             </tbody>
