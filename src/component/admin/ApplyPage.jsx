@@ -20,7 +20,7 @@ const ApplyPage = () => {
         <div className="apply_box">
 
             <div className='apply_title'>
-                <h3 className='apply_title_style'>신청 게시판</h3>
+                <div className='apply_title_style'>영업 승인 게시판</div>
             </div>
 
             <div className='apply_post_box'>
@@ -31,7 +31,7 @@ const ApplyPage = () => {
                             <div style={{ minWidth: 300 }}>
                                 <div className="apply_info">
                                     <div style={{ paddingRight: 10, minWidth: 50 }}>
-                                        <strong>작성자:</strong> {data.name}
+                                        <strong>신청자:</strong> {data.name}
                                     </div>
                                     <div style={{ minWidth: 50 }}>
                                         <strong>승인 여부:</strong> {data.apply ? '승인됨' : '거부됨'}

@@ -69,8 +69,8 @@ const NormalHeader = () => {
 
         <div className="back_ground">
             <div className="section-2">
-                {firstSegment === 'admin' && <h2 className="more"> 관리자 페이지</h2>}
-                {firstSegment === 'owner' && <h2 className="more"> 영업 페이지</h2>}
+                {firstSegment === 'admin' && <h2 className="more"> 관리</h2>}
+                {firstSegment === 'owner' && <h2 className="more"> 영업 및 등록</h2>}
             </div>
         </div>
 

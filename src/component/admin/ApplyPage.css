@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     min-width: 600;
-    padding: 0px 20px;
 }
 
 .apply_title {
@@ -16,7 +15,6 @@
     /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 10px; */
     display: inline-block;
-    padding: 10px;
     color: #f7323f;
 }
 
@@ -27,7 +25,7 @@
 
 .apply_post {
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 5fr 1fr;
     padding: 0px 0px 10px;
     width: auto;
     color: black;
@@ -41,13 +39,15 @@
 
 .apply_post_box {
 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px;
+    margin-top: 30px;
 
 }
 
 .apply_info {
     display: flex;
     flex-direction: row;
+    font-size: 14px;
 }

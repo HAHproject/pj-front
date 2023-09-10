@@ -1,7 +1,7 @@
 // import { useDispatch } from "react-redux";
 // import { setPage } from "../../feature/adminPageSlice";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import '../admin/AdminMenuBox.css'
 
 
@@ -24,6 +24,10 @@ const AdminMenuBox = () => {
     //     };
     // }, []);
 
+    const location = useLocation();
+    const pathSegments = location.pathname.split('/');
+    const secondSegment = pathSegments[2];
+
 
 
     console.log("얘는 랜더링 어느정도까지 허용인가 ? ")
@@ -42,13 +46,12 @@ const AdminMenuBox = () => {
                 return <p className="_button" key={menu} onClick={() => onClickHandler(menu)}> {menu} </p>
             })}
         </div> */}
+        <Link to="/admin/apply" className={secondSegment === 'apply' ? 'in' : ''}> 영업 승인 </Link>
+        <Link to="/admin/room" className={secondSegment === 'room' ? 'in' : ''}> 업주 관리 </Link>
+        <Link to="/admin/log" className={secondSegment === 'log' ? 'in' : ''}> 결제 기록 </Link>
+        <Link to="/admin/statistics" className={secondSegment === 'statistics' ? 'in' : ''}>통계 </Link>
 
-        <div className="_button-list" >
-            <Link to="/admin/apply" className="_button"> apply 페이지 </Link>
-            <Link to="/admin/room" className="_button"> room 페이지 </Link>
-            <Link to="/admin/log" className="_button"> log 페이지 </Link>
-            <Link to="/admin/statistics" className="_button">통계 페이지 </Link>
-        </div>
+        {/* 여긴 순수하게 버튼만 냅두자. 사용하는 쪽의 껍데기에서 a태그를 걸쳐서 쓰는 편이 올바라보임*/}
 
 
     </>

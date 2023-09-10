@@ -42,9 +42,12 @@ const Admin = () => {
             
             */}
             <div className={isSmallScreen ? 'main-box-phone' : 'main-box'}>
-                {!isSmallScreen && <div className="_left-box">
-                    <AdminMenuBox />
-                </div>}
+                {!isSmallScreen &&
+                    <><div className="_left-box">
+                        <div className="_button-list" >
+                            <AdminMenuBox />
+                        </div >
+                    </div></>}
 
 
                 <div className="_right-box">
