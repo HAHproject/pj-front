@@ -5,9 +5,8 @@ import { Outlet } from "react-router";
 import { useSelector } from "react-redux";
 
 
+
 const Owner = () => {
-
-
 
     const { isSmallScreen } = useSelector((state) => state.widthSizes)
 
