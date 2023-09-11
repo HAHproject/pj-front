@@ -1,12 +1,14 @@
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useState } from 'react';
+import { initializeApp } from 'firebase/app'
+import firebaseConfig from "../../firebase/FireBaseConfig";
 
 
 const Owner = () => {
 
 
 
-    // const test = initializeApp(firebaseConfig);
+    const test = initializeApp(firebaseConfig);
     const storage = getStorage();
 
 
