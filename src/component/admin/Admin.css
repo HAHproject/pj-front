@@ -1,17 +1,32 @@
 .main-box {
-    display: flex;
-    margin-top: 200px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding-top: 50px;
+    /* width: auto;
+    margin: 0px 10% 0px 10%; */
+
+    width: 1024px;
+    margin: 0px auto;
+    min-height: 600px;
+
+
+}
+
+.main-box-phone {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 50px;
     width: 100%;
+    margin: 0px auto 0px auto;
+    min-height: 600px;
 
 
 }
 
 ._left-box {
-    flex: 1;
-    position: sticky;
     min-width: 200px;
     height: auto;
-    top: 0;
+    padding-left: 31px;
 
 }
 
@@ -28,11 +43,22 @@
 
 
 
+
+
+._right-box {
+
+    /* overflow-y: scroll;
+    height: 89vh; */
+    height: auto;
+}
+
+._right-list {}
+
+
 ._button-list {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    border-radius: 5px;
+    /* 버튼 리스트 속의 div들에게 영향력을 주는 것. */
 
     /* 애니메이션을 줄 수 있음.. 근데 비용이 좀 비싸보임 */
     /* transition: all 0.5s ease; */
@@ -41,28 +67,22 @@
 
 }
 
-._button {
-    margin: 50px;
-    width: 50%;
-    color: black;
+/* 버튼 리스트 밑에 있는 div 속의 a태그에 대해 영향력 적용. */
+._button-list a {
+    font-weight: normal;
+    margin: 0px 0px 28px;
+    width: 70%;
+    color: rgba(0, 0, 0, 0.56);
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
-    border: 1px solid black;
-    padding: 10px;
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; */
+    text-decoration-line: none;
+
 
 }
 
-._button:hover {
+._button-list a.in {
     color: red;
-}
-
-
-._right-box {
-    flex: 6;
-    height: auto;
-    border: 1px solid black
-}
-
-._right-list {
-    border: 1px solid red
+    font-weight: bold;
 }

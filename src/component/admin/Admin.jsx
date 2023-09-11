@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
-import { Category } from "./Category"
-import { useDispatch } from "react-redux"
-import { setPage } from "../../feature/adminPageSlice"
-import AdminPage from "./AdminPage"
+
+import { useSelector } from "react-redux"
+
 import './Admin.css'
 import AdminMenuBox from "./AdminMenuBox"
+import { Outlet } from "react-router"
 
 const Admin = () => {
 
@@ -19,6 +18,8 @@ const Admin = () => {
 
     //내가 사용할 페이지를 카테고리화 하여서, 어떤 페이지를 보여줄지 결정하고 싶음.
     // const [category, setCategory] = useState(Category.신청페이지)
+
+    const { isSmallScreen } = useSelector((state) => state.widthSizes)
 
     return (
         <>
@@ -40,15 +41,18 @@ const Admin = () => {
             지금 여기서 쓰니깐 어드민 페이지도 1초에 수십번 부르고 있음....
             
             */}
-            <div className="main-box">
+            <div className={isSmallScreen ? 'main-box-phone' : 'main-box'}>
+                {!isSmallScreen &&
+                    <><div className="_left-box">
+                        <div className="_button-list" >
+                            <AdminMenuBox />
+                        </div >
+                    </div></>}
 
-                <div className="_left-box">
-                    <AdminMenuBox />
-                </div>
 
                 <div className="_right-box">
                     <div className="_right-list">
-                        <AdminPage ></AdminPage>
+                        <Outlet></Outlet>
                     </div>
                 </div>
             </div>
