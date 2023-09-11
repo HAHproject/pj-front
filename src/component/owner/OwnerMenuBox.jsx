@@ -11,8 +11,8 @@ const OwnerMeneBox = () => {
 
 
     return <>
-        <Link to="/owner/apply" className={secondSegment === 'apply' ? 'in' : ''}> 영업 신청 </Link>
-        <Link to="/owner/room" className={secondSegment === 'room' ? 'in' : ''}> 등록 및 심사 </Link>
+        <Link to="/owner/apply" className={secondSegment === 'apply' ? 'in' : ''}> 업체 정보 등록 </Link>
+        <Link to="/owner/room" className={secondSegment === 'room' ? 'in' : ''}> 객실 등록 </Link>
         <Link to="/owner/management" className={secondSegment === 'management' ? 'in' : ''}> 관리 </Link>
 
 

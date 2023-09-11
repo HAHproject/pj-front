@@ -8,4 +8,47 @@
     margin-right: auto; */
     border-radius: 5px;
     box-shadow: 0px 2px 5px #aaa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test2 {
+    width: 173px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #f2114c;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    color: #fff;
+    padding-top: 14px;
+    padding-bottom: 16px;
+    cursor: pointer;
+
+}
+
+.todo_layer {
+    display: grid;
+    height: 130px;
+    width: 100%;
+
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+}
+
+.test3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.test img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: #d5dce0;
+    border-radius: 50%;
 }
