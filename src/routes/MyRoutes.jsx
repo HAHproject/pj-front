@@ -2,7 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Admin from "../component/admin/Admin"
 import Login from "../component/auth/Login"
 import Signup from "../component/auth/Signup"
-import Main from "../component/main/Main"
+import Main from "../component/main/MainNavIcon"
 import Template from "../component/template/Template"
 
 

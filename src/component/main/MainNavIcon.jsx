@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Motel } from '../../images/motelicon.png';
-import { Hotel } from '../../images/hotelicon.png';
-import { Pansion } from '../../images/pansionicon.png';
-import { Guest } from '../../images/guesticon.png';
-import { Camping } from '../../images/campingicon.png';
+import Motel from '../../images/motelicon.png';
+import Hotel from '../../images/hotelicon.png';
+import Pansion from '../../images/pansionicon.png';
+import Guest from '../../images/guesticon.png';
+import Camping from '../../images/campingicon.png';
 
 
 const MainNavIcon = () => {
@@ -29,23 +29,23 @@ const MainNavIcon = () => {
     return (
         <IconBox>
             <Icon>
-                <Motel onClick={motelHandle} />
+                <Motel src={Motel} onClick={motelHandle} />
                 <Text>모텔</Text>
             </Icon>
             <Icon>
-                <Hotel onClick={hotelHandle} />
+                <Hotel src={Hotel} onClick={hotelHandle} />
                 <Text>호텔·리조트</Text>
             </Icon>
             <Icon>
-                <Pansion onClick={pansionHandle} />
+                <Pansion src={Pansion} onClick={pansionHandle} />
                 <Text>펜션</Text>
             </Icon>
             <Icon>
-                <Guest onClick={guestHandle} />
+                <Guest src={Guest} onClick={guestHandle} />
                 <Text>게스트하우스</Text>
             </Icon>
             <Icon>
-                <Camping onClick={campingHandle} />
+                <Camping src={Camping} onClick={campingHandle} />
                 <Text>캠핑·글램핑</Text>
             </Icon>
         </IconBox>
