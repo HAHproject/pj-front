@@ -9,7 +9,6 @@ const Template = () => {
     return <div >
         {/*  마이헤더 */}
         <MyHeader></MyHeader>
-
         <Outlet></Outlet>
         <MyFooter />
     </div>

@@ -3,6 +3,7 @@ import './NormalHeader.css'
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import AdminMenuBox from "../admin/AdminMenuBox";
+import OwnerMeneBox from "../owner/OwnerMenuBox";
 
 
 const NormalHeader = () => {
@@ -15,7 +16,8 @@ const NormalHeader = () => {
     console.log('랜더링 테스트')
 
 
-    const [modal, setModal] = useState(false)
+    const [adminModal, setAdminModal] = useState(false)
+    const [ownerModal, setOwnerModal] = useState(false)
 
 
 
@@ -39,27 +41,25 @@ const NormalHeader = () => {
 
                 <div className="section_in">
                     <div className={`fast_menu ${scroll ? 'scroll' : ''}`} >
-                        <div onMouseEnter={() => setModal(true)} onMouseLeave={() => setModal(false)} >
+
+                        <div >
+                            <Link to="/admin" className="header-button" >어드민 페이지</Link>
+                        </div>
+
+                        <div onMouseEnter={() => setAdminModal(true)} onMouseLeave={() => setAdminModal(false)} >
                             <Link to="/admin" className="header-button">어드민 페이지</Link>
                             <div style={{ position: "absolute" }} >
-                                {modal && <div className="sub_menu"><AdminMenuBox /></div>}
+                                {adminModal && <div className="sub_menu"><AdminMenuBox /></div>}
                             </div>
 
                         </div>
-                        <div >
-                            <Link to="/admin" className="header-button" >어드민 페이지</Link>
-                        </div>
-                        <div >
-                            <Link to="/admin" className="header-button" >어드민 페이지</Link>
-                        </div>
-                        <div >
-                            <Link to="/admin" className="header-button" >어드민 페이지</Link>
-                        </div>
-                        <div >
-                            <Link to="/admin" className="header-button" >어드민 페이지</Link>
-                        </div>
-                        <div>
-                            <Link to="/owner" className="header-button" >오너 페이지</Link>
+
+                        <div onMouseEnter={() => setOwnerModal(true)} onMouseLeave={() => setOwnerModal(false)} >
+                            <Link to="/owner" className="header-button">오너 페이지</Link>
+                            <div style={{ position: "absolute" }} >
+                                {ownerModal && <div className="sub_menu"><OwnerMeneBox /></div>}
+                            </div>
+
                         </div>
                     </div>
                 </div>

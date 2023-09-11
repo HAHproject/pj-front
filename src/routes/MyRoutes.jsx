@@ -9,6 +9,10 @@ import LogPage from "../component/admin/LogPage"
 import RoomPage from "../component/admin/RoomPage"
 import StatisticsPage from "../component/admin/StatisticsPage"
 import ApplyDetailPage from "../component/admin/ApplyDetailPage"
+import OwnerApplyPage from "../component/owner/OwnerApplyPage"
+import OwnerRoomPage from "../component/owner/OwnerRoomPage"
+import OwnerManagementPage from "../component/owner/OwnerManagementPage"
+import OwnerIndex from "../component/owner/OwnerIndex"
 
 
 
@@ -29,7 +33,12 @@ const MyRoutes = () => {
                     <Route path="room" element={<RoomPage></RoomPage>} />
                     <Route path="log" element={<LogPage></LogPage>} />
                 </Route>
-                <Route path="/owner" element={<Owner></Owner>} />
+                <Route path="/owner" element={<Owner></Owner>} >
+                    <Route index element={<OwnerIndex />} />
+                    <Route path="apply" element={<OwnerApplyPage />} />
+                    <Route path="room" element={<OwnerRoomPage />} />
+                    <Route path="management" element={<OwnerManagementPage />} />
+                </Route>
 
             </Route>
 
