@@ -13,7 +13,7 @@ const NormalHeader = () => {
     const firstSegment = pathSegments[1];
 
     const { scroll } = useSelector(state => state.scrolls)
-    console.log('랜더링 테스트')
+    console.log('헤더 랜더링 테스트')
 
 
     const [adminModal, setAdminModal] = useState(false)
@@ -69,8 +69,8 @@ const NormalHeader = () => {
 
         <div className="back_ground">
             <div className="section-2">
-                {firstSegment === 'admin' && <h2 className="more"> 관리</h2>}
-                {firstSegment === 'owner' && <h2 className="more"> 영업 및 등록</h2>}
+                {firstSegment === 'admin' && <Link to='/admin'><h2 className="more"> 관리</h2></Link>}
+                {firstSegment === 'owner' && <Link to='/owner'><h2 className="more"> 영업 및 등록</h2></Link>}
             </div>
         </div>
 

@@ -72,6 +72,10 @@
     margin: 0px auto;
 }
 
+.section-2 a {
+    text-decoration-line: none;
+}
+
 .more {
     color: white;
     font-weight: normal;
