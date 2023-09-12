@@ -3,3 +3,72 @@
     border-radius: 5px;
 
 }
+
+.owner_application {
+
+    MARGIN-TOP: 20PX;
+    box-shadow: rgb(170, 170, 170) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.owner_application>section>div {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    text-align: center;
+
+
+}
+
+.owner_application>section>div>span {
+    background-color: #eaeaea;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.owner_application>section>div>div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.owner_application>section>div>div>div {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.owner_application>section>div>div {
+
+    border: 1px solid #ddd;
+}
+
+.owner_application>section>div>span {
+
+    border: 1px solid #ddd;
+}
+
+
+.apply_btn {
+    width: 173px;
+    height: auto;
+    border-radius: 4px;
+    background-color: #f2114c;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    cursor: pointer;
+}
+
+.apply_btn_section {
+    display: flex;
+    justify-content: center;
+
+}
