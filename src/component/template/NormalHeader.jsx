@@ -14,7 +14,7 @@ const NormalHeader = () => {
     const firstSegment = pathSegments[1];
 
     const { scroll } = useSelector(state => state.scrolls)
-    console.log('랜더링 테스트')
+    console.log('헤더 랜더링 테스트')
 
 
     const [adminModal, setAdminModal] = useState(false)

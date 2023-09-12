@@ -72,11 +72,20 @@
     margin: 0px auto;
 }
 
+.section-2 a {
+    text-decoration-line: none;
+}
+
+.section-2 a div:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .more {
     color: white;
     font-weight: normal;
     font-size: 31px;
     margin: 21px 0 0 31px;
+    display: inline-block;
 }
 
 .fast_menu {
@@ -84,6 +93,7 @@
     flex-direction: row;
     text-align: right;
     align-items: center;
+    justify-content: flex-end;
 
 }
 
@@ -97,6 +107,8 @@
     color: rgba(255, 255, 255, 0.8);
     font-size: 18px;
 }
+
+
 
 .sub_menu {
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
