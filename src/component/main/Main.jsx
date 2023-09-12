@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import mainImage from '../images/mainimg.jpg';
+import mainImage from '../../images/mainimg.jpg';
 import MainNavIcon from './MainNavIcon';
+import * as st from '../../feature/style';
+import MainEvent from './MainEvent';
 
 const Main = () => {
 
     return (
         <>
-            <MainImage />
-            <MainNavIcon />
+            <st.Background>
+                <MainImage />
+                <MainNavIcon />
+                <MainEvent />
+            </st.Background>
         </>
     )
 }

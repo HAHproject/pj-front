@@ -10,6 +10,7 @@ export const widthSizeSlice = createSlice({
             state.isSmallScreen = actions.payload
         },
 
+
     },
 });
 
