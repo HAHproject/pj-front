@@ -1,0 +1,47 @@
+.todo_layer {
+    display: grid;
+    height: 130px;
+    width: 100%;
+
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 5px;
+}
+
+.path_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.path_img img {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: #d5dce0;
+    border-radius: 50%;
+}
+
+.path_img img.in {
+
+    background-color: #f2114c;
+
+}
+
+.todo-point {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d5dce0;
+    margin-right: 15px;
+    display: inline-block;
+
+}
+
+.todo_point_box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+}

@@ -13,6 +13,7 @@ import OwnerApplyPage from "../component/owner/OwnerApplyPage"
 import OwnerRoomPage from "../component/owner/OwnerRoomPage"
 import OwnerManagementPage from "../component/owner/OwnerManagementPage"
 import OwnerIndex from "../component/owner/OwnerIndex"
+import OwnerCheckPage from "../component/owner/OwnerCheckPage"
 
 
 
@@ -35,6 +36,7 @@ const MyRoutes = () => {
                 </Route>
                 <Route path="/owner" element={<Owner></Owner>} >
                     <Route index element={<OwnerIndex />} />
+                    <Route path="check" element={<OwnerCheckPage />} />
                     <Route path="apply" element={<OwnerApplyPage />} />
                     <Route path="room" element={<OwnerRoomPage />} />
                     <Route path="management" element={<OwnerManagementPage />} />
