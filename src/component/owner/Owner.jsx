@@ -3,6 +3,7 @@ import { useState } from 'react';
 import OwnerMeneBox from "./OwnerMenuBox";
 import { Outlet } from "react-router";
 import { useSelector } from "react-redux";
+import './Owner.css'
 
 
 
