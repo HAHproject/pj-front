@@ -4,6 +4,7 @@ import mainImage from '../../images/mainimg.jpg';
 import MainNavIcon from './MainNavIcon';
 import * as st from '../../feature/style';
 import MainEvent from './MainEvent';
+import EmployerSignup from './EmployerSignup';
 
 const Main = () => {
 
@@ -13,6 +14,7 @@ const Main = () => {
                 <MainImage />
                 <MainNavIcon />
                 <MainEvent />
+                <EmployerSignup />
             </st.Background>
         </>
     )
