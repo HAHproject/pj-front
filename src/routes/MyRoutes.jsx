@@ -38,6 +38,8 @@ const MyRoutes = () => {
                     <Route path="ques" element={<QuesPage></QuesPage>} />
 
                 </Route>
+
+
                 <Route path="/admin" element={<Admin></Admin>} >
                     <Route path="apply" element={<ApplyPage></ApplyPage>} />
                     <Route path="apply/:id" element={<ApplyDetailPage />} />
@@ -47,14 +49,17 @@ const MyRoutes = () => {
                     <Route path="room" element={<RoomPage></RoomPage>} />
                     <Route path="log" element={<LogPage></LogPage>} />
                 </Route>
+
+
                 <Route path="/owner" element={<Owner></Owner>} >
                     <Route index element={<OwnerIndex />} />
                     <Route path="apply" element={<OwnerApplyPage />} />
                     <Route path="room" element={<OwnerRoomPage />} />
                     <Route path="management" element={<OwnerManagementPage />} />
                 </Route>
-            </Route>
 
+
+            </Route>
 
 
 
