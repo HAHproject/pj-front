@@ -45,10 +45,6 @@ const NormalHeader = () => {
                 <div className="section_in">
                     <div className={`fast_menu ${scroll ? 'scroll' : ''}`} >
 
-                        <div >
-                            <Link to="/admin" className="header-button" >어드민 페이지</Link>
-                        </div>
-
                         <div onMouseEnter={() => setUserModal(true)} onMouseLeave={() => setUserModal(false)} >
                             <Link to="/reservation" className="header-button">예약 내역</Link>
 
@@ -87,10 +83,10 @@ const NormalHeader = () => {
 
         <div className="back_ground">
             <div className="section-2">
-                {firstSegment === 'admin' && <h2 className="more"> 관리</h2>}
-                {firstSegment === 'owner' && <h2 className="more"> 영업 및 등록</h2>}
-                {firstSegment === 'reservation' && <h2 className="more"> 예약 내역</h2>}
-                {firstSegment === 'notice' && <h2 className="more"> 더 보기</h2>}
+                {firstSegment === 'admin' && <div className="more"> 관리</div>}
+                {firstSegment === 'owner' && <div className="more"> 영업 및 등록</div>}
+                {firstSegment === 'reservation' && <div className="more"> 예약 내역</div>}
+                {firstSegment === 'notice' && <div className="more"> 더 보기</div>}
             </div>
         </div>
 
