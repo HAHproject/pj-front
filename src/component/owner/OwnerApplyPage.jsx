@@ -228,6 +228,9 @@ const OwnerApplyPage = () => {
 
                         신청하기 <br />
                         <span style={{ fontSize: '8px' }}>(관리자의 승인이 필요합니다)</span>
+
+
+                        {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함. */}
                     </div>
                 </div>
 
