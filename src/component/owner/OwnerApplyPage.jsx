@@ -2,9 +2,32 @@ import OwnerIndexDetail from "./OwnerIndexDetail"
 import { man1 } from './data'
 import './OwnerApplyPage.css'
 
+import ReactDaumPost from 'react-daumpost-hook'
+import { useRef, useState } from "react"
+
 const OwnerApplyPage = () => {
 
     const user = man1
+
+    const [test, setTest] = useState({ address: '', sido: '', addInfo: '' })
+
+    const ref = useRef(null);
+
+    const postConfig = {
+        // 팝업창으로 사용시 ref: userRef()
+        onComplete: (data) => {
+
+            setTest({ address: data.address, sido: data.sido })
+
+
+            console.log(test)
+
+            /* 
+                      우편 번호 처리하는 로직
+                  */
+        },
+    };
+    const postCode = ReactDaumPost(postConfig);
 
 
     const navHandler = () => {
@@ -109,11 +132,49 @@ const OwnerApplyPage = () => {
                     </div>
                     <div>
                         <span>
-                            담당자
+                            사업자 등록 정보
                         </span>
 
                         <div>
-                            내용작성
+
+                            <div>
+                                <div>
+                                    상호명
+                                </div>
+
+                                <div>
+                                    <input type='text' placeholder='사업자 등록증상 상호명' style={{ width: '260px' }} />
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    업종
+                                </div>
+
+                                <div>
+                                    체크박스 시리즈
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    업체 주소
+                                </div>
+                                <div>
+                                    <input type='text' style={{ caretColor: 'transparent', width: '260px' }} onClick={postCode} placeholder={`${test.address}`} />
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    추가 정보
+                                </div>
+                                <div>
+                                    <input type='text' style={{ width: '260px' }} />
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div>
@@ -124,7 +185,16 @@ const OwnerApplyPage = () => {
                         </span>
 
                         <div>
-                            내용작성
+                            <div>
+                                <div>
+                                    홈페이지
+                                </div>
+                                <div>
+                                    <input placeholder="홈페이지 주소" className="input_phone_data">
+
+                                    </input>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
