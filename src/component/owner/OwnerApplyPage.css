@@ -58,6 +58,11 @@
 
 }
 
+.owner_application>section>div>div>img {
+    width: 300px;
+
+}
+
 .owner_application>section>div>div,
 .owner_application>section>div>span {
 
@@ -94,4 +99,14 @@
 
 .btn-upload {
     background-color: #f2114c;
+    border-radius: 4px;
+    padding: 6px;
+    color: white;
+    font-size: 12px;
+}
+
+.img_item {
+    display: flex;
+    gap: 20px;
+    align-items: center
 }

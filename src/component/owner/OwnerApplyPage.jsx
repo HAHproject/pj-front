@@ -21,8 +21,6 @@ const OwnerApplyPage = () => {
             setTest({ address: data.address, sido: data.sido })
 
 
-            console.log(image)
-
             /* 
                       우편 번호 처리하는 로직
                   */
@@ -36,14 +34,28 @@ const OwnerApplyPage = () => {
 
     }
 
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState({ name: '', file: '', thumbnail: '', });
 
     // 이미지 파일 선택 핸들러
     const handleImageChange = (e) => {
 
         e.preventDefault()
+
+
         const selectedImage = e.target.files[0];
-        setImage(selectedImage);
+
+        if (selectedImage) {
+            const url = URL.createObjectURL(selectedImage)
+            setImage({ name: selectedImage.name, file: selectedImage, thumbnail: url });
+
+
+
+        } else {
+            console.log('여기로 오나 ?')
+            setImage({ name: image.name, file: image.file, thumbnail: image.thumbnail })
+        }
+
+
     };
 
 
@@ -69,6 +81,8 @@ const OwnerApplyPage = () => {
                 이걸 보기 좋게 꾸밀 수 있는 방법이 없나?
 
                 컬럼별로 하나의 폴더에 구분해두면 좋긴할텐데
+
+                여기를 다 뜯어서 보관할지 고민중
 
 
                 */}
@@ -109,37 +123,6 @@ const OwnerApplyPage = () => {
                                     </input>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <span>
-                            담당자
-                        </span>
-
-                        <div>
-                            내용작성
-                        </div>
-
-                    </div>
-
-
-                    <div>
-                        <span>
-                            담당자
-                        </span>
-
-                        <div>
-                            내용작성
-                        </div>
-                    </div>
-                    <div>
-                        <span>
-                            담당자
-                        </span>
-
-                        <div>
-                            내용작성
                         </div>
                     </div>
                     <div>
@@ -196,12 +179,25 @@ const OwnerApplyPage = () => {
                         </span>
 
                         <div>
-                            <label for="file">
-                                <div class="btn-upload">파일 업로드하기</div>
-                                {/* <div>{image} </div> */}
-                            </label>
+
+                            {/* 삭제 버튼 만들어야함. <- 생각보다 중요함..
+                            
+                            그리고 신청서와 같은 경우는 리덕스로 관리하는게 나을 수 있음.
+
+                            보내고 초기화하는 식으로? 이유 -> 한 파일에 코드가 너무 많음.
+                            각 파트별로 코드를 나눠서 관리하는게 나을 수도....
+                            */}
+
+
+                            {image.file ? <img src={image.thumbnail} alt="테스트"></img> : <img src="/logo512.png" alt="몰라" />}
 
                             <input type="file" name='file' id="file" onChange={handleImageChange} style={{ display: 'none' }} />
+                            <label htmlFor="file">
+                                <div className="img_item">
+                                    <div className="btn-upload">파일 업로드하기</div>
+                                    {image.file ? <div>{image.name}</div> : <div>파일을 올려주세요</div>}
+                                </div>
+                            </label>
                         </div>
                     </div>
                     <div>
