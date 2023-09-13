@@ -46,10 +46,10 @@ const OwnerApplyPage = () => {
                         <div>
                             <div>
                                 <div>
-                                    이름
+                                    이메일
                                 </div>
                                 <div>
-                                    이름 입력
+                                    이메일 받아올 예정
                                 </div>
                             </div>
 
@@ -58,7 +58,9 @@ const OwnerApplyPage = () => {
                                     휴대폰 번호
                                 </div>
                                 <div>
-                                    번호 입력
+                                    <input placeholder="핸드폰 번호" className="input_phone_data">
+
+                                    </input>
                                 </div>
                             </div>
 
@@ -67,7 +69,9 @@ const OwnerApplyPage = () => {
                                     대표 번호
                                 </div>
                                 <div>
-                                    번호 입력
+                                    <input placeholder="대표 전화번호" className="input_phone_data">
+
+                                    </input>
                                 </div>
                             </div>
                         </div>
