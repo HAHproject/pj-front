@@ -17,10 +17,11 @@ const OwnerApplyPage = () => {
         // 팝업창으로 사용시 ref: userRef()
         onComplete: (data) => {
 
+
             setTest({ address: data.address, sido: data.sido })
 
 
-            console.log(test)
+            console.log(image)
 
             /* 
                       우편 번호 처리하는 로직
@@ -34,6 +35,17 @@ const OwnerApplyPage = () => {
 
 
     }
+
+    const [image, setImage] = useState(null);
+
+    // 이미지 파일 선택 핸들러
+    const handleImageChange = (e) => {
+
+        e.preventDefault()
+        const selectedImage = e.target.files[0];
+        setImage(selectedImage);
+    };
+
 
 
 
@@ -177,11 +189,26 @@ const OwnerApplyPage = () => {
 
                         </div>
                     </div>
+
+                    <div>
+                        <span>
+                            업장 사진
+                        </span>
+
+                        <div>
+                            <label for="file">
+                                <div class="btn-upload">파일 업로드하기</div>
+                                {/* <div>{image} </div> */}
+                            </label>
+
+                            <input type="file" name='file' id="file" onChange={handleImageChange} style={{ display: 'none' }} />
+                        </div>
+                    </div>
                     <div>
                         <span>
                             호스트 <br />
                             홈페이지<br />
-                            선택사항
+                            (선택사항)
                         </span>
 
                         <div>
