@@ -27,3 +27,22 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.room_btn-upload {
+    background-color: #f2114c;
+    border-radius: 4px;
+    padding: 6px;
+    color: white;
+    font-size: 12px;
+}
+
+.room_img_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.room_img_item>div {
+    font-size: 10px;
+}
