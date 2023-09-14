@@ -1,20 +1,122 @@
 import { useNavigate } from "react-router"
 import { OwnerCategory } from "./OwnerCategory"
-import { man1, man2 } from "./data"
-import { useEffect } from "react"
+import { data, man1, man2 } from "./data"
+import { useEffect, useState } from "react"
 import OwnerIndexDetail from "./OwnerIndexDetail"
 
 import './Owner.css'
 
 import './OwnerRoomPage.css'
 import { api } from "../../network/api/api"
+import uuid from "react-uuid"
 
 const OwnerRoomPage = () => {
+
+    const sample = data // 업체 정보, 이걸 이제 받아온 상태인것임.
 
 
     const nav = useNavigate()
 
     const user = man2
+
+
+    const [list, setList] = useState([])
+
+    const test10 = () => {
+        const num = uuid()
+        setList([...list, { id: num }])
+    }
+
+
+
+    const test = { id: '1', roomName: '1' }
+
+    const [data1, setData1] = useState([])
+    /**
+     * 각자가 함수를 따로 갖아야하는데, 그 함수에서 인덱스를 받아와서
+     * 그 인덱스에 맞게 데이터를 만들어서, 던져줘야한다.
+     * 
+     * 
+     */
+
+
+
+
+
+
+
+
+    const test1 = (data) => {
+
+
+        setData1([...data1, data])
+    }
+
+    const test2 = () => {
+
+        console.log(list)
+    }
+
+    const test3 = () => {
+
+
+    }
+
+    const test4 = (id) => {
+        setList(list.filter((data) => data.id !== id))
+
+    }
+
+
+    const [test100, setTest100] = useState({ id: '', num: '' })
+    // 객체 만들기.
+
+
+    const dataSet = (e) => {
+        const { name, value, id } = e.target
+
+        const result = list.map((data) => data.id === id ? { ...data, [name]: value } : data)
+        setList(result)
+    }
+
+
+    const test13 = (e) => {
+        e.preventDefault()
+        // setData1([...data1, test100])
+
+
+    }
+
+    const elements = list.map((data) =>
+    (
+        <div style={{ display: 'flex', flexDirection: 'column' }} key={data.id}>
+
+            <form onSubmit={(e) => test13(e)}>
+                <input name="test2" id={data.id} placeholder="방정보" onBlur={(e) => dataSet(e)}>
+                </input>
+                <input name="test" id={data.id} placeholder="테스트" onBlur={(e) => dataSet(e)}>
+                </input>
+
+                <input type="file" >
+
+                </input>
+                <button type="submit" > 제출버튼입니다.</button>
+            </form>
+            <div>
+                {data.id}
+            </div>
+
+            <button onClick={() => test4(data.id)}>삭제 버튼</button>
+
+        </div>
+    ))
+
+    // 필요한 것 -> 업데이트 쿼리 (신청서를 보고 상태를 업데이트 해주어야함)
+    //  // 이때는 숙소로 먼저 간다음(유저정보를 담아서)
+    // 숙
+
+    // 근데 그 상태 업데이트가 두군데에 이루어져야함...
+
 
     const navHander = () => {
 
@@ -60,16 +162,31 @@ const OwnerRoomPage = () => {
 
 
             <div className="owner_room_application">
-                현재 신청한 숙소 정보를 읽어와야함.
-                이건 api 를 쏴서 갖고와야하는 정보
+                <div className="owner_room_info">
+                    <img src={data.img} />
+                    <div className="owner_room_text">
+                        <h2>{data.name}</h2>
+                        <div style={{ color: 'rgba(0,0,0,0.56)' }} > {data.Sectors}</div>
+                        <div style={{ color: 'rgba(0,0,0,0.56)' }}>{data.address}</div>
+
+                        <div>대표 : 이름 와야함</div>
+                        <div>대표 번호 : {data.number}</div>
+                        <div>홈페이지 : {data.homePage}</div>
+                        {/* 이 정보를 수정가능하게할지는 의문임... 그러면 수정 요청을 하고 또 수정버튼을 누르는 식이 되어야해서. */}
+                    </div>
+
+                </div>
             </div>
 
-            <div>
-                여기는 방 등록 폼이 와야함.
+            <button onClick={() => test1()}>test 1</button>
 
-                리스트로 받아야하고 ... 몇가지 신경 쓸 부분이 있음..
+            {elements}
 
-            </div>
+            <button onClick={() => test10()}> 추가하기</button>
+            <button onClick={() => test2()}>test 2</button>
+            {/* 유즈 스테이트에 0:{객체} 1:{객체} 이런식으로 저장하고 싶음 [data...[index]:객체] */}
+
+
 
         </div>
 

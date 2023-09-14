@@ -4,3 +4,26 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+.owner_room_info {
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+}
+
+.owner_room_info>img {
+    width: 400px;
+    height: 230px;
+}
+
+.owner_room_info {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.owner_room_text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
