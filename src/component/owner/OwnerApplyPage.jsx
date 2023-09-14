@@ -198,13 +198,15 @@ const OwnerApplyPage = () => {
 
                             보내고 초기화하는 식으로? 이유 -> 한 파일에 코드가 너무 많음.
                             각 파트별로 코드를 나눠서 관리하는게 나을 수도....
+
+                            코드 나누기 + css 최적화 하기 -> 주말 과제
                             */}
 
-
-                            {image.file ? <img src={image.thumbnail} alt="테스트"></img> : <img src="/logo512.png" alt="몰라" />}
-
+                            <label htmlFor='file' style={{ display: 'flex' }}>
+                                {image.file ? <img src={image.thumbnail} alt="테스트"></img> : <img src="https://via.placeholder.com/376x226.png/f4f4f4?text=Click+here+to+upload" alt="몰라" />}
+                            </label>
                             <input type="file" name='file' id="file" onChange={handleImageChange} style={{ display: 'none' }} />
-                            <label htmlFor="file">
+                            <label htmlFor="file" style={{ margin: '9px 0 0 0' }}>
                                 <div className="img_item">
                                     <div className="btn-upload">파일 업로드하기</div>
                                     {image.file ? <div>{image.name}</div> : <div>파일을 올려주세요</div>}

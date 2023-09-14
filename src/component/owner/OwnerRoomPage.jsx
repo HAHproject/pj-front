@@ -258,7 +258,7 @@ const OwnerRoomPage = () => {
                 <button onClick={() => addRoomHandler()}> 방 추가하기</button>
             </div>
             <button onClick={() => test2()}>test 2</button>
-            {/* 유즈 스테이트에 0:{객체} 1:{객체} 이런식으로 저장하고 싶음 [data...[index]:객체] */}
+
 
 
 
