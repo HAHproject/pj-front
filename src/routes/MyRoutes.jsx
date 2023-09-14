@@ -18,6 +18,18 @@ import Notice from "../component/notice/Notice"
 import EventPage from "../component/notice/EventPage"
 import QuesPage from "../component/notice/QuesPage"
 import AnnouncementPage from "../component/notice/AnnouncementPage"
+import MainSignup from "../component/main/mainLogin/MainSignup";
+import MainLogin from "../component/main/mainLogin/MainLogin";
+import FindPw from "../component/user/information/FindPw";
+import Reservation from "../component/user/information/Reservation";
+
+import MyInfoBox from "../component/user/information/MyInfoBox";
+import Info from "../component/user/information/Info";
+import MyInfoPage from "../component/user/information/MyInfoPage";
+import MyInfoChange from "../component/user/information/MyInfoChange";
+import MyPoints from "../component/user/information/MyPoints";
+import MyReservationInfo from "../component/user/information/MyReservationInfo";
+
 
 
 
@@ -25,11 +37,13 @@ import AnnouncementPage from "../component/notice/AnnouncementPage"
 const MyRoutes = () => {
     return <BrowserRouter>
         <Routes>
-
-            <Route path="/login" element={<Login></Login>} />
-            <Route path="/signup" element={<Signup></Signup>} />
+            <Route path="/login" element={<MainLogin></MainLogin>} />
+            <Route path="/signup" element={<MainSignup></MainSignup>} />
+            <Route path="/findPw" element={<FindPw></FindPw>} />
+            <Route path="/authLogin" element={<Login></Login>}/>
             <Route element={<Template />}>
                 {/* 템플릿이 적용될 파츠들.. 여기서 고민이 몇가지 있다. */}
+
 
                 <Route path="/main" element={<Main />} />
                 <Route path="/notice" element={<Notice></Notice>} >
@@ -57,8 +71,15 @@ const MyRoutes = () => {
                     <Route path="room" element={<OwnerRoomPage />} />
                     <Route path="management" element={<OwnerManagementPage />} />
                 </Route>
-
-
+                <Route path ="/amenity" element={<Reservation></Reservation>}>
+                </Route>
+                <Route path = "/info" element={<Info></Info>}></Route>
+                <Route path = "/myInfo" element={<MyInfoPage></MyInfoPage>}>
+                    <Route/>
+                    <Route path="update" element={<MyInfoChange />} />
+                    <Route path="points" element={<MyPoints />} />
+                    <Route path="rInfo" element={<MyReservationInfo />} />
+                </Route>
             </Route>
 
 

@@ -1,0 +1,31 @@
+.base1 {
+    display:grid;
+    gridTemplateColumns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 20px;
+    color:darkgray;
+}
+
+.main {
+    display: flex;
+    flexDirection: row;
+    justifyContent: left;
+    width: 1024px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.56);
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    text-decoration-line: none;
+}
+
+.base1:hover{
+    color: mediumseagreen;
+}
+
+.base2 {
+    display:grid;
+    gridTemplateColumns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 20px;
+    color:black;
+    font-weight: bold;
+}
+

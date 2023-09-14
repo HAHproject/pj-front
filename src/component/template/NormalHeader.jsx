@@ -83,12 +83,13 @@ const NormalHeader = () => {
 
         {firstSegment !== 'main' && <div className="back_ground">
             <div className="section-2">
-                {firstSegment === 'admin' && <div className="more"> 관리</div>}
-                {firstSegment === 'owner' && <div className="more"> 영업 및 등록</div>}
+                {firstSegment === 'admin' && <Link to='/admin'><div className="more"> 관리</div></Link>}
+                {firstSegment === 'owner' && <Link to='/owner'><div className="more"> 영업 및 등록</div></Link>}
                 {firstSegment === 'reservation' && <div className="more"> 예약 내역</div>}
                 {firstSegment === 'notice' && <div className="more"> 더 보기</div>}
             </div>
         </div>}
+
 
 
 

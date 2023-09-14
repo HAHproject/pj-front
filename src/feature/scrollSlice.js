@@ -16,3 +16,4 @@ export const scrollSlice = createSlice({
 export const { setScroll } = scrollSlice.actions;
 
 export default scrollSlice.reducer;
+

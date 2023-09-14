@@ -1,0 +1,38 @@
+._side-button-list {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+._side-button-list a {
+    font-weight: normal;
+    margin: 0px 0px 28px;
+    width: 70%;
+    color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    text-decoration-line: none;
+
+}
+
+._side-button-list a.in {
+    color: red;
+    font-weight: bold;
+}
+
+
+._side-button {
+    font-weight: normal;
+    margin: 0px 0px 28px;
+    width: 70%;
+    color: rgba(0, 0, 0, 0.56);
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    text-decoration-line: none;
+
+}
+
+._side-button:hover {
+    color: red;
+}
