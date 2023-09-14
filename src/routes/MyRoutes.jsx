@@ -22,8 +22,13 @@ import MainSignup from "../component/main/mainLogin/MainSignup";
 import MainLogin from "../component/main/mainLogin/MainLogin";
 import FindPw from "../component/user/information/FindPw";
 import Reservation from "../component/user/information/Reservation";
-import Info from "../component/main/layout/Info";
-import MyInfo from "../component/user/information/MyInfo";
+
+import MyInfoBox from "../component/user/information/MyInfoBox";
+import Info from "../component/user/information/Info";
+import MyInfoPage from "../component/user/information/MyInfoPage";
+import MyInfoChange from "../component/user/information/MyInfoChange";
+import MyPoints from "../component/user/information/MyPoints";
+import MyReservationInfo from "../component/user/information/MyReservationInfo";
 
 
 
@@ -69,7 +74,12 @@ const MyRoutes = () => {
                 <Route path ="/amenity" element={<Reservation></Reservation>}>
                 </Route>
                 <Route path = "/info" element={<Info></Info>}></Route>
-                <Route path = "/myInfo" element={<MyInfo></MyInfo>}></Route>
+                <Route path = "/myInfo" element={<MyInfoPage></MyInfoPage>}>
+                    <Route/>
+                    <Route path="update" element={<MyInfoChange />} />
+                    <Route path="points" element={<MyPoints />} />
+                    <Route path="rInfo" element={<MyReservationInfo />} />
+                </Route>
             </Route>
 
 

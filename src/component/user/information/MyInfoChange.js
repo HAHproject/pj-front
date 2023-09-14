@@ -33,33 +33,33 @@ const MyInfoChange = () => {
 
     return (
         <div className="table-container">
-            <h1 className="table-title">My Info</h1>
+            <h1 style={{color: "#f7323f"}} className="table-title">내 정보</h1>
             <table>
                 <thead>
                 <tr>
-                    <th>유저이름</th>
-                    <th>새로운 비밀번호</th>
+                    <th style={{textAlign: "center"}}>유저이름</th>
+                    <th style={{textAlign: "center"}}>새로운 비밀번호</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <tr key = {`${User.userId}`}>
                     <td>
-                        <input
+                        <input style={{textAlign: "center", width: "100%", border: "0"}}
                             type="text"
                             value={User.name}
                             onChange={(e) => setNewUserName(e.target.value)}
                         />
                     </td>
                     <td>
-                        <input
+                        <input style={{textAlign: "center", width: "100%", border: "0"}}
                             type="password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                         />
                     </td>
-                    <td>
-                        <button onClick={handleUpdateInfo}>정보 수정</button>
+                    <td style={{border: "0"}}>
+                        <div style={{cursor:"pointer", backgroundColor:"#f7323f", borderRadius: "4px", textAlign: "center", color: "white", padding: "4px 0"}} onClick={handleUpdateInfo}> 정보 수정 </div>
                     </td>
                 </tr>
                 </tbody>

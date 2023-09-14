@@ -9,25 +9,25 @@ const MyPoints = () => {
 
     return (
         <div className="table-container">
-            <h1 className="table-title">My Points</h1>
+            <h1 style={{color: "#f7323f"}} className="table-title">내 포인트</h1>
             <table>
                 <thead>
                 <tr>
-                    <th>유저이름</th>
-                    <th>포인트</th>
+                    <th style={{textAlign: "center"}}>유저이름</th>
+                    <th style={{textAlign: "center"}}>포인트</th>
                 </tr>
                 </thead>
                 <tbody>
                 {/*<tr key={loginInfo.userId}>*/}
                 <tr key = {`${User.userId}`}>
                     <td>
-                        <input
+                        <input style={{textAlign: "center", width: "100%", border: "0"}}
                             type="text" readOnly={true}
                             value={User.name}
                         />
                     </td>
                     <td>
-                        <input
+                        <input style={{textAlign: "center", width: "100%", border: "0"}}
                             type="text" readOnly={true}
                             value={User.point}
                         />

@@ -18,7 +18,7 @@ const FilterMenuBox = () => {
         <div>
         <div className={classes.main}>
             <div className={classes.base} style={{ marginRight: '20px' }}>
-                <p className={classes.base1} onClick={openModal}>상세조건 초기화</p>
+                <p className={classes.base1}>상세조건 초기화</p>
             </div>
             <div className={classes.base1}>
                 <p onClick={openModal}>날짜</p>

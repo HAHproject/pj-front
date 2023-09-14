@@ -23,45 +23,26 @@ const MyReservationInfo = () => {
 
     return (
         <div className="table-container">
-            <h1 className="table-title">My Reservation Info</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>RoomType</th>
-                    <th>Date</th>
-                    <th>Price</th>
-                    <th>rId</th>
-                </tr>
-                </thead>
-                <tbody>
+            <h1 style={{color: "#f7323f"}} className="table-title">내 예약 정보</h1>
+            <div>
+                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr 1fr 1fr', textAlign:"center", margin: "30px 0", fontWeight: "Bold"}}>
+                    <div>Name</div>
+                    <div>RoomType</div>
+                    <div>Date</div>
+                    <div>Price</div>
+                    <div>rId</div>
+                </div>
 
-                {myReservation.map((data)=> <tr key={data.rId}>
-                <td>{data.name}</td>
-                <td>{data.rType}</td>
-                <td>{data.rDate}</td>
-                <td>{data.rPrice}</td>
-                <td>{data.rId}</td>
-                </tr> )}
-
-
-                {/*<tr key={myReservation.rId}>*/}
-                {/*    <td>{myReservation.name}</td>*/}
-                {/*    <td>{myReservation.rType}</td>*/}
-                {/*    <td>{myReservation.rDate}</td>*/}
-                {/*    <td>{myReservation.rPrice}</td>*/}
-                {/*    <td>{myReservation.rId}</td>*/}
-                {/*</tr>*/}
-                {/*{reservationData.map((item) => (*/}
-                {/*    <tr key={item.rId}>*/}
-                {/*        <td>{item.amenityName}</td>*/}
-                {/*        <td>{item.roomType}</td>*/}
-                {/*        <td>{item.rDate}</td>*/}
-                {/*        <td>{item.rId}</td>*/}
-                {/*    </tr>*/}
-                {/*))}*/}
-                </tbody>
-            </table>
+                <div style={{display:"flex", flexDirection: "column", gap:"20px"}}>
+                {myReservation.map((data)=> <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr 1fr 1fr 1fr', textAlign:"center"}} key={data.id}key={data.rId}>
+                <div>{data.name}</div>
+                <div>{data.rType}</div>
+                <div>{data.rDate}</div>
+                <div>{data.rPrice}</div>
+                <div>{data.rId}</div>
+                </div> )}
+                </div>
+            </div>
         </div>
     )};
 

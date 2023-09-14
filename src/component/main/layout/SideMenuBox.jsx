@@ -1,20 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
 import "../layout/SideMenuBox.css"
+import classes from "../../main/mainLogin/mainLogin.module.css"
 
 const SideMenuBox = () => {
 
 
     const location = useLocation();
     const pathSegments = location.pathname.split('/');
-    const secondSegment = pathSegments[2];
 
 
     return <>
-        <Link to="/admin/apply" className={secondSegment === 'apply' ? 'in' : ''}> 모텔 </Link>
-        <Link to="/admin/room" className={secondSegment === 'room' ? 'in' : ''}> 호텔 </Link>
-        <Link to="/admin/log" className={secondSegment === 'log' ? 'in' : ''}> 펜션 </Link>
-        <Link to="/admin/statistics" className={secondSegment === 'statistics' ? 'in' : ''}> 게스트하우스 </Link>
-        <Link to="/admin/statistics" className={secondSegment === 'statistics' ? 'in' : ''}> 캠핑 </Link>
+        <Link to="/amenity/motel"> 모텔 </Link>
+        <Link to="/amenity/hotel" > 호텔 </Link>
+        <Link to="/amenity/pension" > 펜션 </Link>
+        <Link to="/amenity/guestHouse" > 게스트하우스 </Link>
+        <Link to="/amenity/camping" > 캠핑 </Link>
     </>
 
 }

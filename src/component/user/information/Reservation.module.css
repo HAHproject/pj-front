@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: white;
 }
 
 .container {
@@ -93,7 +93,17 @@ button:hover {
 .menu a {
     font-size: 17px;
     margin-right: 25pt;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #999;
+    transition: .3s;
 }
+
+.menu a:hover{
+    color: #38d39f;
+}
+
 
 .filter {
      display: flex;
