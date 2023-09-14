@@ -1,11 +1,23 @@
 import OwnerIndexDetail from "./OwnerIndexDetail"
 import { man1 } from './data'
 import './OwnerApplyPage.css'
+import './Owner.css'
 
 import ReactDaumPost from 'react-daumpost-hook'
 import { useRef, useState } from "react"
 
 const OwnerApplyPage = () => {
+
+    console.log('어플라이 랜더링 테스트, ')
+
+    // 지금 set할때마다 한번에 다 읽어서, 이걸 해결해야한다. (컴포넌트로 분리해서)
+
+    // 그리고 여기 데이터는 완벽하게 재사용할 예정.
+    // 재사용 방법 -> 각컴포넌트를 || 걸어서 둘중하나의 데이터를 사용하게 변경,
+    // 그리고 특정 페이지에서만 api를 활용하여(이건 로케이션 이용하면 될듯.)
+    // 그렇게 하면 이 페이지 전부를 재사용 할 수 있음. -> 어드민에서.
+    // 특정 페이지에서는 인풋도 안되게 변경해야하는데.. 이건 고민 좀 해봐야할듯...
+    // 다시 만드는게 더 나을 수 있음.
 
     const user = man1
 

@@ -1,7 +1,13 @@
+import OwnerApplyPage from "../owner/OwnerApplyPage"
+
 const ApplyDetailPage = () => {
 
 
-    return <div> 테스트중입니다</div>
+    return <div>
+
+        <OwnerApplyPage></OwnerApplyPage>
+
+    </div>
 
 }
 
