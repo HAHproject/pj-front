@@ -4,6 +4,7 @@ import './OwnerIndexDetail.css'
 
 const OwnerIndexDetail = ({ user }) => {
 
+
     const elements = Array.from({ length: 5 }, (_, index) => (<div className='todo-point' key={index}>
 
     </div>))
