@@ -15,8 +15,6 @@ const OwnerMeneBox = () => {
         <Link to="/owner/room" className={secondSegment === 'room' ? 'in' : ''}> 객실 등록 </Link>
         <Link to="/owner/management" className={secondSegment === 'management' ? 'in' : ''}> 관리 </Link>
 
-
-
     </>
 
 }

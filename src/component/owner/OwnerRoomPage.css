@@ -1,0 +1,49 @@
+.owner_room_application {
+
+    box-shadow: rgb(170, 170, 170) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.owner_room_info {
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+    margin: 15px;
+}
+
+.owner_room_info>img {
+    width: 376px;
+    height: 226px;
+}
+
+.owner_room_info {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.owner_room_text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.room_btn-upload {
+    background-color: #f2114c;
+    border-radius: 4px;
+    padding: 6px;
+    color: white;
+    font-size: 12px;
+}
+
+.room_img_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.room_img_item>div {
+    font-size: 10px;
+}

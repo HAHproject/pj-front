@@ -26,15 +26,17 @@
 
     background-color: #f2114c;
 
+
 }
+
 
 .todo-point {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #d5dce0;
     margin-right: 15px;
     display: inline-block;
+    background-color: #d5dce0;
 
 }
 
@@ -44,4 +46,17 @@
     flex-direction: column;
     justify-content: center;
     padding-bottom: 50px;
+
+}
+
+.todo_point_box.in>div>div {
+    background-color: white;
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    border-left: 8px solid #f2114c;
+    border-right: 2px solid transparent;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 0%;
+
 }

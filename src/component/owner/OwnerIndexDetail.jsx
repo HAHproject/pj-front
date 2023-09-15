@@ -16,7 +16,7 @@ const OwnerIndexDetail = ({ user }) => {
                 <div style={{ marginTop: '10px' }}>마이페이지</div>
                 <div> 업체 정보 등록</div>
             </div>
-            <div className='todo_point_box'>
+            <div className={`todo_point_box ${user.status === OwnerCategory.신청중 ? 'in' : ''}`}>
                 <div>
                     {elements}
                 </div>
@@ -25,7 +25,7 @@ const OwnerIndexDetail = ({ user }) => {
                 <img className={`${user.status === OwnerCategory.객실등록 ? 'in' : ''}`} src='https://guest.goodchoice.kr/img/asset/icn_4_room_64x64.png' alt='객실등록' />
                 <div style={{ marginTop: '10px' }}>객실 등록</div>
             </div>
-            <div className='todo_point_box'>
+            <div className={`todo_point_box ${user.status === OwnerCategory.등록확인중 ? 'in' : ''}`}>
                 <div>
                     {elements}
                 </div>
