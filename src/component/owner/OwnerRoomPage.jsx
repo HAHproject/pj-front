@@ -19,7 +19,7 @@ const OwnerRoomPage = () => {
 
     const nav = useNavigate()
 
-    const user = man1
+    const user = man2
 
     const [list, setList] = useState([])
 

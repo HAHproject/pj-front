@@ -29,6 +29,7 @@ import MyInfoPage from "../component/user/information/MyInfoPage";
 import MyInfoChange from "../component/user/information/MyInfoChange";
 import MyPoints from "../component/user/information/MyPoints";
 import MyReservationInfo from "../component/user/information/MyReservationInfo";
+import PaymentPage from "../component/user/information/PaymentPage";
 
 
 
@@ -72,6 +73,8 @@ const MyRoutes = () => {
                     <Route path="management" element={<OwnerManagementPage />} />
                 </Route>
                 <Route path ="/amenity" element={<Reservation></Reservation>}>
+                </Route>
+                <Route path ="/payment" element={<PaymentPage></PaymentPage>}>
                 </Route>
                 <Route path = "/info" element={<Info></Info>}></Route>
                 <Route path = "/myInfo" element={<MyInfoPage></MyInfoPage>}>
