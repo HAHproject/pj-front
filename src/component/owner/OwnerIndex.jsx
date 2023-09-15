@@ -7,7 +7,7 @@ import OwnerIndexDetail from './OwnerIndexDetail'
 
 const OwnerIndex = () => {
 
-    const user = man2
+    const user = man1
 
     const nav = useNavigate()
 

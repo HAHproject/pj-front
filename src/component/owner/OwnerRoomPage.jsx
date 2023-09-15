@@ -19,7 +19,7 @@ const OwnerRoomPage = () => {
 
     const nav = useNavigate()
 
-    const user = man2
+    const user = man1
 
     const [list, setList] = useState([])
 
@@ -59,11 +59,7 @@ const OwnerRoomPage = () => {
     }
 
 
-
-    const [flag, setFlag] = useState(false)
-
-
-    const save = (e) => {
+    const saveHandler = (e) => {
         e.preventDefault()
         const { id } = e.target
 
@@ -135,7 +131,7 @@ const OwnerRoomPage = () => {
             </div>
 
             <div >
-                <form id={data.id} onSubmit={(e) => save(e)}>
+                <form id={data.id} onSubmit={(e) => saveHandler(e)}>
 
                     <div style={{ display: 'grid', gridTemplateColumns: '2fr 5fr', gap: '10px' }}>
                         <span>

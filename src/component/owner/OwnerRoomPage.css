@@ -9,11 +9,12 @@
     display: flex;
     flex-direction: row;
     gap: 17px;
+    margin: 15px;
 }
 
 .owner_room_info>img {
-    width: 400px;
-    height: 230px;
+    width: 376px;
+    height: 226px;
 }
 
 .owner_room_info {
