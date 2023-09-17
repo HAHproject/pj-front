@@ -2,6 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom"
 import Admin from "../component/admin/Admin"
 import Login from "../component/auth/Login"
 import Signup from "../component/auth/Signup"
+import Check from "../component/auth/Check"
 import Main from "../component/main/Main"
 import Template from "../component/template/Template"
 import Owner from "../component/owner/Owner"
@@ -30,6 +31,7 @@ import MyInfoChange from "../component/user/information/MyInfoChange";
 import MyPoints from "../component/user/information/MyPoints";
 import MyReservationInfo from "../component/user/information/MyReservationInfo";
 import PaymentPage from "../component/user/information/PaymentPage";
+import SignupFromAuth from "../component/auth/SignupFromAuth"
 
 
 
@@ -41,7 +43,11 @@ const MyRoutes = () => {
             <Route path="/login" element={<MainLogin></MainLogin>} />
             <Route path="/signup" element={<MainSignup></MainSignup>} />
             <Route path="/findPw" element={<FindPw></FindPw>} />
-            <Route path="/authLogin" element={<Login></Login>}/>
+            <Route path="/authLogin" element={<Login></Login>} />
+            <Route path="/check" element={<Check />} />
+            <Route path="/signup-auth" element={<SignupFromAuth />} />
+
+
             <Route element={<Template />}>
                 {/* 템플릿이 적용될 파츠들.. 여기서 고민이 몇가지 있다. */}
 
@@ -72,13 +78,13 @@ const MyRoutes = () => {
                     <Route path="room" element={<OwnerRoomPage />} />
                     <Route path="management" element={<OwnerManagementPage />} />
                 </Route>
-                <Route path ="/amenity" element={<Reservation></Reservation>}>
+                <Route path="/amenity" element={<Reservation></Reservation>}>
                 </Route>
-                <Route path ="/payment" element={<PaymentPage></PaymentPage>}>
+                <Route path="/payment" element={<PaymentPage></PaymentPage>}>
                 </Route>
-                <Route path = "/info" element={<Info></Info>}></Route>
-                <Route path = "/myInfo" element={<MyInfoPage></MyInfoPage>}>
-                    <Route/>
+                <Route path="/info" element={<Info></Info>}></Route>
+                <Route path="/myInfo" element={<MyInfoPage></MyInfoPage>}>
+                    <Route />
                     <Route path="update" element={<MyInfoChange />} />
                     <Route path="points" element={<MyPoints />} />
                     <Route path="rInfo" element={<MyReservationInfo />} />

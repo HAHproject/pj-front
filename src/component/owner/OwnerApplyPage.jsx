@@ -40,6 +40,8 @@ const OwnerApplyPage = () => {
 
     })
 
+    console.log('onchange의 문제')
+
 
     const dataSet = (e) => {
 
@@ -65,6 +67,8 @@ const OwnerApplyPage = () => {
         if (!address || !addressDetail || !imgName || !ownerPhoneNum || !mutualPhoneNum || !mutualName) {
 
             alert('정보를 모두 입력하여 주십시오')
+            // 이건 나중에 따로 관리할 방법을 찾아보자.
+            // 전체를 form으로 감싸서 필요성 체크를해줘도 된다.
         }
 
 
@@ -96,6 +100,12 @@ const OwnerApplyPage = () => {
 
     };
 
+    const setValidity = (e, mes) => {
+
+        e.target.setCustomValidity(mes)
+
+    }
+
 
     /// 고민이 있다면,
 
@@ -106,8 +116,7 @@ const OwnerApplyPage = () => {
                 <OwnerIndexDetail user={user} />
             </div>
 
-            <div className="owner_application">
-
+            <form className="owner_application" onSubmit={() => navHandler()}>
                 <section>
                     <div >
                         <span>
@@ -130,11 +139,16 @@ const OwnerApplyPage = () => {
                                 </div>
                                 <div>
                                     <input
-                                        type="number"
+
                                         placeholder="핸드폰 번호"
                                         name="ownerPhoneNum"
                                         className="input_phone_data"
+                                        // pattern="[0-9]{11}"
+
+                                        onInvalid={(e) => setValidity(e, '핸드폰 번호를 입력해주세요')}
+                                        required
                                         onBlur={(e) => dataSet(e)}>
+                                        {/* 여기를 제대로 하려면 각각을 원자화 한다음 거기서 onchange를 하고, 최종 값을 onblur로 다시 검증가능하다. */}
 
                                     </input>
                                 </div>
@@ -150,7 +164,15 @@ const OwnerApplyPage = () => {
                                         placeholder="대표 전화번호"
                                         className="input_phone_data"
                                         name="mutualPhoneNum"
-                                        onBlur={(e) => dataSet(e)}>
+
+                                        // pattern="[0-9]{11}"
+
+                                        onInvalid={(e) => setValidity(e, '핸드폰 번호를 입력해주세요')}
+                                        required
+                                        onBlur={(e) => dataSet(e)}
+
+                                    >
+
 
                                     </input>
                                 </div>
@@ -175,7 +197,13 @@ const OwnerApplyPage = () => {
                                         placeholder='사업자 등록증상 상호명'
                                         style={{ width: '260px' }}
                                         name="mutualName"
-                                        onBlur={(e) => dataSet(e)} />
+
+
+                                        onInvalid={(e) => setValidity(e, '상호명을 입력해주세요')}
+                                        required
+
+                                        onBlur={(e) => dataSet(e)}
+                                    />
                                 </div>
                             </div>
 
@@ -245,7 +273,16 @@ const OwnerApplyPage = () => {
                                     업체 주소
                                 </div>
                                 <div>
-                                    <input type='text' style={{ caretColor: 'transparent', width: '260px' }} onClick={postCode} placeholder={`${application.address}`} />
+                                    <input
+                                        type='text'
+                                        style={{ caretColor: 'transparent', width: '260px' }}
+                                        onClick={postCode}
+                                        placeholder={`${application.address}`}
+                                        onInvalid={(e) => setValidity(e, '주소를 입력해주세요')}
+                                        required
+
+
+                                    />
                                 </div>
                             </div>
 
@@ -254,7 +291,14 @@ const OwnerApplyPage = () => {
                                     추가 정보
                                 </div>
                                 <div>
-                                    <input type='text' style={{ width: '260px' }} name="addressDetail" onBlur={(e) => dataSet(e)} />
+                                    <input
+                                        type='text'
+                                        style={{ width: '260px' }}
+                                        name="addressDetail"
+                                        onBlur={(e) => dataSet(e)}
+                                        onInvalid={(e) => setValidity(e, '주소를 입력해주세요')}
+                                        required
+                                    />
                                 </div>
                             </div>
 
@@ -271,7 +315,15 @@ const OwnerApplyPage = () => {
                             <label htmlFor='file' style={{ display: 'flex' }}>
                                 {application.img ? <img src={application.img} alt="테스트"></img> : <img src="https://via.placeholder.com/376x226.png/f4f4f4?text=Click+here+to+upload" alt="몰라" />}
                             </label>
-                            <input type="file" name='file' id="file" onChange={handleImageChange} style={{ display: 'none' }} />
+                            <input
+                                type="file"
+                                name='file'
+                                id="file"
+                                onChange={handleImageChange}
+                                style={{ display: 'none' }}
+                                onInvalid={(e) => setValidity(e, '업장 사진을 업로드해주세요')}
+                                required
+                            />
                             <label htmlFor="file" style={{ margin: '9px 0 0 0' }}>
                                 <div className="img_item">
                                     <div className="btn-upload">파일 업로드하기</div>
@@ -304,7 +356,7 @@ const OwnerApplyPage = () => {
 
                 <div className="apply_btn_section">
 
-                    <div className="apply_btn" onClick={() => navHandler()}>
+                    <button className="apply_btn" type="submit" >
 
                         신청하기 <br />
                         <span style={{ fontSize: '8px' }}>(관리자의 승인이 필요합니다)</span>
@@ -313,10 +365,10 @@ const OwnerApplyPage = () => {
                         {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함. 
                         그냥 alert 띄우기로 함...
                         */}
-                    </div>
+                    </button>
                 </div>
 
-            </div>
+            </form>
 
         </div>
 
