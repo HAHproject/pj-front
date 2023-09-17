@@ -19,7 +19,9 @@ const OwnerRoomPage = () => {
     const nav = useNavigate()
 
     const user = man2
+
     // 이건 리덕스에 있을 예정
+
 
 
 
