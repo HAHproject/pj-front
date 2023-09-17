@@ -75,6 +75,7 @@ const NormalHeader = () => {
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -87,6 +88,7 @@ const NormalHeader = () => {
                 {firstSegment === 'owner' && <Link to='/owner'><div className="more"> 영업 및 등록</div></Link>}
                 {firstSegment === 'reservation' && <div className="more"> 예약 내역</div>}
                 {firstSegment === 'notice' && <div className="more"> 더 보기</div>}
+
             </div>
         </div>}
 

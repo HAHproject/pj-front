@@ -1,7 +1,6 @@
 
 import { useSelector } from "react-redux"
 
-import './Admin.css'
 import AdminMenuBox from "./AdminMenuBox"
 import { Outlet } from "react-router"
 

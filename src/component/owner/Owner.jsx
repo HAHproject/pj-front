@@ -3,14 +3,13 @@ import { useState } from 'react';
 import OwnerMeneBox from "./OwnerMenuBox";
 import { Outlet } from "react-router";
 import { useSelector } from "react-redux";
-import './Owner.css'
-
 
 
 const Owner = () => {
 
     const { isSmallScreen } = useSelector((state) => state.widthSizes)
 
+    // 여기 있는 css 전부 common.css 로 빼도 될거같은데 ... 나중에 해보자.
 
     return <>
         <div className={isSmallScreen ? 'main-box-phone' : 'main-box'}>

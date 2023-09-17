@@ -1,0 +1,33 @@
+.owner_room {
+    display: flex;
+    flex-direction: column;
+    gap: 14px
+}
+
+.owner_room_apply {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+
+}
+
+.owner_room_apply>button {
+
+    background-color: #f2114c;
+    border-radius: 7px;
+    border: 1px solid #f2114c;
+    padding: 8px 43px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+
+
+}
+
+.owner_room_apply>span {
+    color: gray;
+    font-size: 10px;
+}
