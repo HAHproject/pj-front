@@ -2,6 +2,9 @@ import { useEffect } from "react"
 import { api } from "../../network/api"
 import { useLocation, useNavigate } from "react-router"
 import { useSearchParams } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { setUserdux } from "../../feature/userSlice";
 
 const Check = () => {
 
@@ -27,6 +30,8 @@ const Check = () => {
         checkByEmail()
     }, [])
 
+    const dispatch = useDispatch()
+
 
 
     const checkByEmail = async () => {
@@ -34,6 +39,11 @@ const Check = () => {
         try {
             const { data } = await api("/api/v1/auth/check", 'POST',)
 
+
+            if (data.token) {
+                const map = jwtDecode(data.token)
+                dispatch(setUserdux(map))
+            }
             if (data) {
                 nav(data.urlRedirect
                 )
@@ -43,7 +53,7 @@ const Check = () => {
 
         } catch (err) {
 
-            alert('서버에러')
+            alert(err)
 
 
         }

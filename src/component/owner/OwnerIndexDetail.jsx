@@ -1,8 +1,19 @@
+import { useSelector } from "react-redux"
 import { OwnerCategory } from "./OwnerCategory"
 
 import './OwnerIndexDetail.css'
+import { useNavigate } from "react-router"
+import { useEffect } from "react"
 
-const OwnerIndexDetail = ({ user }) => {
+const OwnerIndexDetail = () => {
+
+    const user = useSelector(state => state.user)
+
+
+    console.log(user)
+
+
+
 
 
     const elements = Array.from({ length: 5 }, (_, index) => (<div className='todo-point' key={index}>

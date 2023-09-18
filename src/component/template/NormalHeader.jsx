@@ -16,6 +16,8 @@ const NormalHeader = () => {
     const { scroll } = useSelector(state => state.scrolls)
     console.log('헤더 랜더링 테스트')
 
+    const user = useSelector(state => state.user)
+
 
     const [adminModal, setAdminModal] = useState(false)
     const [ownerModal, setOwnerModal] = useState(false)
@@ -60,21 +62,21 @@ const NormalHeader = () => {
 
 
 
-                        <div onMouseEnter={() => setAdminModal(true)} onMouseLeave={() => setAdminModal(false)} >
+                        {(user && user.role === 'ADMIN') && <div onMouseEnter={() => setAdminModal(true)} onMouseLeave={() => setAdminModal(false)} >
                             <Link to="/admin" className="header-button">어드민 페이지</Link>
                             <div style={{ position: "absolute" }} >
                                 {adminModal && <div className="sub_menu"><AdminMenuBox /></div>}
                             </div>
 
-                        </div>
+                        </div>}
+                        {(user && user.role === 'OWNER') &&
+                            <div onMouseEnter={() => setOwnerModal(true)} onMouseLeave={() => setOwnerModal(false)} >
+                                <Link to="/owner" className="header-button">오너 페이지</Link>
+                                <div style={{ position: "absolute" }} >
+                                    {ownerModal && <div className="sub_menu"><OwnerMeneBox /></div>}
+                                </div>
 
-                        <div onMouseEnter={() => setOwnerModal(true)} onMouseLeave={() => setOwnerModal(false)} >
-                            <Link to="/owner" className="header-button">오너 페이지</Link>
-                            <div style={{ position: "absolute" }} >
-                                {ownerModal && <div className="sub_menu"><OwnerMeneBox /></div>}
-                            </div>
-
-                        </div>
+                            </div>}
 
                     </div>
                 </div>

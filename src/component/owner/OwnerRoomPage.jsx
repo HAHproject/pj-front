@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { OwnerCategory } from "./OwnerCategory"
 import { data, man1, man2 } from "./data"
 import { useEffect, useState } from "react"
@@ -14,7 +14,7 @@ import OwnerRoomApplyPage from "./OwnerRoomApplyPage"
 
 const OwnerRoomPage = () => {
 
-    console.log('랜더링 테스트 at room')
+
 
     const nav = useNavigate()
 

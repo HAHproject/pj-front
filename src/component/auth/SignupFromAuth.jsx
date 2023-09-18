@@ -3,12 +3,17 @@ import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 
 import { api } from "../../network/api"
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { setUserdux } from '../../feature/userSlice';
 
 const SignupFromAuth = () => {
 
     const data = localStorage.getItem('token')
 
     const decodedToken = jwtDecode(data)
+
+    const nav = useNavigate()
 
 
 
@@ -23,6 +28,7 @@ const SignupFromAuth = () => {
 
 
     })
+    const dispatch = useDispatch()
 
 
 
@@ -37,11 +43,24 @@ const SignupFromAuth = () => {
     const signupHandler = async (e) => {
         e.preventDefault()
 
+        alert("체크")
+
         try {
-            const data = await api('api/v1/auth/signup', 'POST', user)
+            const { data } = await api('api/v1/auth/signup', 'POST', user)
+
+            console.log(data)
+
+            dispatch(setUserdux(data))
+            nav('/main')
+
+
+
+
 
 
         } catch (err) {
+            console.log(err)
+            alert(err)
 
         }
 
@@ -59,7 +78,7 @@ const SignupFromAuth = () => {
             <div className='signup_box'>
 
                 <div style={{ backgroundColor: '#f44250' }}>여기어때</div>
-                <form className='signup_form' onSubmit={() => signupHandler()}>
+                <form className='signup_form' onSubmit={(e) => signupHandler(e)}>
                     <div>
                         <div> 이메일</div>
                         <div> {user.email}</div>

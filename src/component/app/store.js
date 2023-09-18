@@ -5,6 +5,7 @@ import widthSizeSlice from '../../feature/widthSizeSlice';
 import scrollSlice from '../../feature/scrollSlice';
 import loginCheckSlice from "../main/ducks/loginCheck";
 import ownerRoomSlice from '../../feature/ownerRoomSlice';
+import userSlice from '../../feature/userSlice';
 
 export default configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export default configureStore({
         widthSizes: widthSizeSlice,
         scrolls: scrollSlice,
         loginCheck: loginCheckSlice,
-        ownerRoom: ownerRoomSlice
+        ownerRoom: ownerRoomSlice,
+        user: userSlice
     }
 });

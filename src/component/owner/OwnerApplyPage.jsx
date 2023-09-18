@@ -4,13 +4,21 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
-import { Await } from "react-router"
+import { Await, useNavigate } from "react-router"
 import { api, apiNoToken } from "../../network/api"
+import { useDispatch, useSelector } from "react-redux"
+import { setUserStatus, setUserdux } from "../../feature/userSlice"
+import { OwnerCategory } from "./OwnerCategory"
 
 
 const OwnerApplyPage = () => {
 
     console.log('어플라이 랜더링 테스트, ')
+
+    const dispatch = useDispatch()
+
+
+    const nav = useNavigate()
 
     // 지금 set할때마다 한번에 다 읽어서, 이걸 해결해야한다. (컴포넌트로 분리해서)
 
@@ -21,12 +29,12 @@ const OwnerApplyPage = () => {
     // 특정 페이지에서는 인풋도 안되게 변경해야하는데.. 이건 고민 좀 해봐야할듯...
     // 다시 만드는게 더 나을 수 있음.
 
-    const user = man1 // 이건 리덕스에서 받아온 상태.
+    const user = useSelector(state => state.user)
 
     const [application, setApplication] = useState({
         ownerid: user.id,
-        ownerEmail: 'email',
-        ownerName: user.name,
+        ownerEmail: user.email,
+        ownerName: user.username,
         sectors: 'motel',
         ownerPhoneNum: '',
         accoName: '',
@@ -77,9 +85,16 @@ const OwnerApplyPage = () => {
 
 
         /// 여기서 이제 api를 쏴주면 끝난다.
-        console.log(application)
+        try {
+            const data = await apiNoToken('/api/v1/acco/apply', 'POST', application)
 
-        const data = await apiNoToken('/api/v1/acco/apply', 'POST', application)
+            dispatch(setUserStatus(OwnerCategory.신청중))
+
+
+            nav('/owner')
+        } catch (err) {
+            alert(err)
+        }
 
 
     }
@@ -123,7 +138,7 @@ const OwnerApplyPage = () => {
     return <>
         <div style={{ display: 'flex', flexDirection: "column", justifyContent: 'center' }}>
             <div className="owner_status">
-                <OwnerIndexDetail user={user} />
+                <OwnerIndexDetail />
             </div>
 
             <form className="owner_application" onSubmit={(e) => navHandler(e)}>
@@ -139,7 +154,7 @@ const OwnerApplyPage = () => {
                                     이메일
                                 </div>
                                 <div>
-                                    {application.email}
+                                    {application.ownerEmail}
                                 </div>
                             </div>
 
