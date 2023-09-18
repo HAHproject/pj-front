@@ -54,12 +54,7 @@ const SignupFromAuth = () => {
             nav('/main')
 
 
-
-
-
-
         } catch (err) {
-            console.log(err)
             alert(err)
 
         }
