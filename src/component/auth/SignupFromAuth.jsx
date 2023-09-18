@@ -16,19 +16,15 @@ const SignupFromAuth = () => {
 
 
     const [user, setUser] = useState({
-        id: '',
-        email: '',
-        username: '',
+        id: decodedToken.id,
+        email: decodedToken.email,
+        username: decodedToken.username,
         role: 'CUSTOMER'
 
 
     })
 
-    useEffect(() => {
 
-        setUser({ ...user, id: decodedToken.id, email: decodedToken.email, username: decodedToken.username })
-
-    })
 
     const setUserHandler = (e) => {
 
@@ -38,7 +34,8 @@ const SignupFromAuth = () => {
     }
 
 
-    const signupHandler = async () => {
+    const signupHandler = async (e) => {
+        e.preventDefault()
 
         try {
             const data = await api('api/v1/auth/signup', 'POST', user)
@@ -62,7 +59,7 @@ const SignupFromAuth = () => {
             <div className='signup_box'>
 
                 <div style={{ backgroundColor: '#f44250' }}>여기어때</div>
-                <form className='signup_form' onSubmit={signupHandler()}>
+                <form className='signup_form' onSubmit={() => signupHandler()}>
                     <div>
                         <div> 이메일</div>
                         <div> {user.email}</div>
@@ -84,7 +81,7 @@ const SignupFromAuth = () => {
                         </div>
 
                     </div>
-                    <button type='submit'> 일단 테스트</button>
+                    <button type='submit'> 가입하기</button>
                 </form>
 
 

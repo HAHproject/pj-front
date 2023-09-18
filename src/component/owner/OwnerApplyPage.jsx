@@ -4,6 +4,8 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
+import { Await } from "react-router"
+import { api, apiNoToken } from "../../network/api"
 
 
 const OwnerApplyPage = () => {
@@ -23,12 +25,12 @@ const OwnerApplyPage = () => {
 
     const [application, setApplication] = useState({
         ownerid: user.id,
-        email: 'email',
+        ownerEmail: 'email',
         ownerName: user.name,
-        sectors: '',
+        sectors: 'motel',
         ownerPhoneNum: '',
-        mutualName: '',
-        mutualPhoneNum: '',
+        accoName: '',
+        accoPhoneNum: '',
         address: '',
         sido: '',
         addressDetail: '',
@@ -59,20 +61,26 @@ const OwnerApplyPage = () => {
     const postCode = ReactDaumPost(postConfig);
 
 
-    const navHandler = () => {
+    const navHandler = async (e) => {
+        e.preventDefault()
 
 
-        const { address, addressDetail, imgName, ownerPhoneNum, mutualPhoneNum, mutualName } = application
+        const { address, addressDetail, imgName, ownerPhoneNum, accoPhoneNum, accoName } = application
 
-        if (!address || !addressDetail || !imgName || !ownerPhoneNum || !mutualPhoneNum || !mutualName) {
+        if (!address || !addressDetail || !imgName || !ownerPhoneNum || !accoPhoneNum || !accoName) {
 
-            alert('정보를 모두 입력하여 주십시오')
+
+            return alert('정보를 모두 입력하여 주십시오')
             // 이건 나중에 따로 관리할 방법을 찾아보자.
             // 전체를 form으로 감싸서 필요성 체크를해줘도 된다.
         }
 
 
         /// 여기서 이제 api를 쏴주면 끝난다.
+        console.log(application)
+
+        const data = await apiNoToken('/api/v1/acco/apply', 'POST', application)
+
 
     }
 
@@ -88,10 +96,12 @@ const OwnerApplyPage = () => {
 
             reader.readAsDataURL(selectedImage);
 
+            console.log(selectedImage)
+
             reader.onload = (event) => {
                 const fileAsBase64 = event.target.result;
 
-                setApplication({ ...application, imgName: selectedImage.name, img: fileAsBase64 });
+                setApplication({ ...application, imgName: selectedImage.name, img: fileAsBase64, imgType: selectedImage.type });
             };
 
 
@@ -116,7 +126,7 @@ const OwnerApplyPage = () => {
                 <OwnerIndexDetail user={user} />
             </div>
 
-            <form className="owner_application" onSubmit={() => navHandler()}>
+            <form className="owner_application" onSubmit={(e) => navHandler(e)}>
                 <section>
                     <div >
                         <span>
@@ -163,7 +173,7 @@ const OwnerApplyPage = () => {
                                         type="number"
                                         placeholder="대표 전화번호"
                                         className="input_phone_data"
-                                        name="mutualPhoneNum"
+                                        name="accoPhoneNum"
 
                                         // pattern="[0-9]{11}"
 
@@ -196,7 +206,7 @@ const OwnerApplyPage = () => {
                                         type='text'
                                         placeholder='사업자 등록증상 상호명'
                                         style={{ width: '260px' }}
-                                        name="mutualName"
+                                        name="accoName"
 
 
                                         onInvalid={(e) => setValidity(e, '상호명을 입력해주세요')}
@@ -278,8 +288,7 @@ const OwnerApplyPage = () => {
                                         style={{ caretColor: 'transparent', width: '260px' }}
                                         onClick={postCode}
                                         placeholder={`${application.address}`}
-                                        onInvalid={(e) => setValidity(e, '주소를 입력해주세요')}
-                                        required
+
 
 
                                     />
@@ -296,8 +305,7 @@ const OwnerApplyPage = () => {
                                         style={{ width: '260px' }}
                                         name="addressDetail"
                                         onBlur={(e) => dataSet(e)}
-                                        onInvalid={(e) => setValidity(e, '주소를 입력해주세요')}
-                                        required
+
                                     />
                                 </div>
                             </div>
@@ -321,8 +329,7 @@ const OwnerApplyPage = () => {
                                 id="file"
                                 onChange={handleImageChange}
                                 style={{ display: 'none' }}
-                                onInvalid={(e) => setValidity(e, '업장 사진을 업로드해주세요')}
-                                required
+
                             />
                             <label htmlFor="file" style={{ margin: '9px 0 0 0' }}>
                                 <div className="img_item">
