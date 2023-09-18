@@ -18,6 +18,9 @@ const OwnerRoomAddPage = () => {
 
     }
 
+    // 이 밑에 있는 것을 전부 함수로 넣어야하나 ? 
+    // 그건 한버 생각을 해보자. 어짜피 함수가 다르면 ...rg?
+
 
     const deleteDataHandler = (id) => {
 
@@ -99,7 +102,7 @@ const OwnerRoomAddPage = () => {
             </div>
 
             <div >
-                <form id={`submit/${data.id}`} onSubmit={(e) => saveHandler(e)}>
+                <form id={`submit/${data.id}`} onSubmit={(e) => saveHandler(e)} >
 
                     <div className='room_data'>
                         <div>
@@ -156,6 +159,7 @@ const OwnerRoomAddPage = () => {
                                         id={`party/${data.id}`}
                                         onClick={(e) => dataSet(e)}
                                         disabled={data.flag}
+
                                     />파티 룸
                                 </label>
                             </div>
@@ -183,7 +187,6 @@ const OwnerRoomAddPage = () => {
                     </div>
 
                 </form>
-
             </div >
 
         </div >
