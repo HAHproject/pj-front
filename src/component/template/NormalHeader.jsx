@@ -48,7 +48,7 @@ const NormalHeader = () => {
                     <div className={`fast_menu ${scroll ? 'scroll' : ''}`} >
 
                         <div onMouseEnter={() => setUserModal(true)} onMouseLeave={() => setUserModal(false)} >
-                            <Link to="/reservation" className="header-button">예약 내역</Link>
+                            <Link to="/myInfo/rInfo" className="header-button">예약 내역</Link>
 
                         </div>
 

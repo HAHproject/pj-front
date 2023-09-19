@@ -4,12 +4,11 @@ import { man2 } from './data'
 import { useDispatch, useSelector } from 'react-redux'
 import { setData, setRoom } from '../../feature/ownerRoomSlice'
 import { useParams } from 'react-router'
+import {useNavigate} from "react-router-dom";
 
 const OwnerRoomAddPage = () => {
 
-    const nav = useNavigate()
-
-
+    const nav = useNavigate();
 
 
     const { accoId } = useParams()

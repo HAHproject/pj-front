@@ -4,11 +4,13 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
-import {apiClient} from "../../network/api/apiAll";
+import {apiClient} from "../../network/api/apiClient";
 
 import { Await, useNavigate } from "react-router"
 import {api, apiNoToken } from "../../network/api"
 import { useDispatch, useSelector } from "react-redux"
+import {setUserStatus} from "../../feature/userSlice";
+import {OwnerCategory} from "./OwnerCategory";
 
 
 

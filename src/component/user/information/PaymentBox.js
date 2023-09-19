@@ -85,12 +85,18 @@ const PaymentBox = () => {
     const signupRoleHandler = async (e) => {
         e.preventDefault()
         try {
-            const res = await api('/api/v1/payment', "POST", payment)
+            const combinedData = {
+                name: reservationUname,
+                phoneNumber: phoneNumber,
+                amenityId: checkoutData.aId,
+                roomId: checkoutData.rId,
+                price: price
+            }
+            const res = await api('/api/v1/payment', "POST", combinedData)
             alert("예약 성공");
         } catch (err) {
             console.log(err);
             alert("예약 실패");
-
         }
     }
 
@@ -232,7 +238,7 @@ const PaymentBox = () => {
             </div>
             <div style={{display:"grid", gridTemplateColumns:"0fr 4fr 0fr", width: "100%"}}>
                 <div style={{width:"100%"}}></div>
-            <button onClick={checkHandler} style={{alignItems: "center"}}>
+            <button onClick={()=>checkHandler()} style={{alignItems: "center"}}>
                 결제하기
             </button>
                 <div style={{width:"100%"}}></div>

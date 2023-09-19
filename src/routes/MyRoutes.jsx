@@ -80,7 +80,13 @@ const MyRoutes = () => {
                     <Route path="room/:accoId" element={<OwnerRoomPage />} />
                     <Route path="management" element={<OwnerManagementPage />} />
                 </Route>
-                <Route path="/amenity" element={<Reservation></Reservation>}>
+                <Route path="/acco" element={<Reservation></Reservation>}>
+                    <Route />
+                    <Route path="motel" element={<MyReservationInfo />}/>
+                    <Route path="hotel" element={<MyReservationInfo />}/>
+                    <Route path="pansion" element={<MyReservationInfo />} />
+                    <Route path="guestHouse" element={<MyReservationInfo />} />
+                    <Route path="camping" element={<MyReservationInfo />} />
                 </Route>
                 <Route path="/payment" element={<PaymentPage></PaymentPage>}>
                 </Route>

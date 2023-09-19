@@ -1,3 +1,5 @@
-import {apiAll} from "./apiAll";
+import {apiClient} from "./apiClient";
 
-export const apiGetresult = () => apiAll.get('/api/v1/amenity')
+export const apiGetAccoResult = () => apiClient.get('/api/v1/acco')
+
+export const apiGetRoomResult = () => apiClient.get('/api/v1/room')
