@@ -1,0 +1,12 @@
+.signup_box {
+    box-shadow: rgb(170, 170, 170) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.signup_form>div {
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 15px;
+}

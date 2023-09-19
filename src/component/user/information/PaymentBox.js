@@ -1,6 +1,7 @@
 import classes from "./paymentIndex.css"
 import { useState } from 'react';
 import {ReservationData, User} from "../../../data/DataList";
+import {api} from "../../../network/api";
 
 const PaymentBox = () => {
 
@@ -79,6 +80,18 @@ const PaymentBox = () => {
     const discountPrice = (e) => {
         setDiscountPoint(e.target.value)
         setPrice (Number(ReservationData.price) - Number(selectedCoupon) - Number(e.target.value))
+    }
+
+    const signupRoleHandler = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await api('/api/v1/payment', "POST", payment)
+            alert("예약 성공");
+        } catch (err) {
+            console.log(err);
+            alert("예약 실패");
+
+        }
     }
 
 
@@ -177,6 +190,7 @@ const PaymentBox = () => {
                     </div>
                 </div>
         </div>
+    <form onSubmit={signupRoleHandler}>
         <div>
             <div style={{margin:"10px 0",borderBottom: "1px solid rgba(0,0,0,0.1)", borderBottomWidth: "0.5px"}}>
                 <div style={{margin: "30px", marginBottom: "10px"}}>
@@ -224,6 +238,7 @@ const PaymentBox = () => {
                 <div style={{width:"100%"}}></div>
             </div>
         </div>
+    </form>
         </>
     )
 }

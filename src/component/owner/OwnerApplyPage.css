@@ -4,6 +4,7 @@
     box-shadow: rgb(170, 170, 170) 0px 1px 4px;
     border-radius: 5px;
     padding: 10px;
+    min-width: 800px;
 }
 
 .owner_application>section>div {
@@ -66,6 +67,7 @@
 .apply_btn {
     width: 173px;
     height: auto;
+    border: 1px solid #f2114c;
     border-radius: 4px;
     background-color: #f2114c;
     font-size: 18px;
