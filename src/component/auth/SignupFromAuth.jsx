@@ -3,32 +3,29 @@ import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 
 import { api } from "../../network/api"
+import {loginInfoSet} from "../main/ducks/loginCheck";
+import {useNavigate} from "react-router-dom";
+import {roleSignup} from "../../network/api/apiPostService";
 
 const SignupFromAuth = () => {
+
 
     const data = localStorage.getItem('token')
 
     const decodedToken = jwtDecode(data)
 
-
-
+    const nav = useNavigate();
 
 
 
     const [user, setUser] = useState({
-        id: '',
-        email: '',
-        username: '',
+        id: decodedToken.id,
+        email: decodedToken.email,
+        username: decodedToken.username,
         role: 'CUSTOMER'
 
-
     })
 
-    useEffect(() => {
-
-        setUser({ ...user, id: decodedToken.id, email: decodedToken.email, username: decodedToken.username })
-
-    })
 
     const setUserHandler = (e) => {
 
@@ -43,12 +40,23 @@ const SignupFromAuth = () => {
         try {
             const data = await api('api/v1/auth/signup', 'POST', user)
 
-
         } catch (err) {
 
         }
 
+    }
 
+
+    const signupRoleHandler = async (e) => {
+        e.preventDefault()
+        try {
+            const res = await api('/api/v1/auth/signup', "POST", user)
+            alert("가입 성공");
+        } catch (err) {
+            console.log(err);
+            alert("가입 실패");
+
+        }
     }
 
 
@@ -62,7 +70,7 @@ const SignupFromAuth = () => {
             <div className='signup_box'>
 
                 <div style={{ backgroundColor: '#f44250' }}>여기어때</div>
-                <form className='signup_form' onSubmit={signupHandler()}>
+                <form className='signup_form' onSubmit={signupRoleHandler}>
                     <div>
                         <div> 이메일</div>
                         <div> {user.email}</div>
@@ -76,19 +84,26 @@ const SignupFromAuth = () => {
                     <div>
                         <div> 가입 유형</div>
                         <div>
-                            <input type='radio' name='role' value='CUSTOMER' onClick={(e) => setUserHandler(e)} />
-                            일반
+                            <input
+                                type='radio'
+                                name='role'
+                                value='CUSTOMER'
+                                onChange={setUserHandler}
+                            />
+                            CUSTOMER
 
-                            <input type='radio' name='role' value='OWNER' onClick={(e) => setUserHandler(e)} />
-                            장사
+                            <input
+                                type='radio'
+                                name='role'
+                                value='OWNER'
+                                onChange={setUserHandler}
+                            />
+                            OWNER
                         </div>
 
                     </div>
-                    <button type='submit'> 일단 테스트</button>
+                    <button type='submit'>확인(테스트)</button>
                 </form>
-
-
-
 
 
             </div>

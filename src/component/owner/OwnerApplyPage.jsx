@@ -4,6 +4,8 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
+import {apiClient} from "../../network/api/apiAll";
+import {api} from "../../network/api";
 
 
 const OwnerApplyPage = () => {
@@ -59,21 +61,22 @@ const OwnerApplyPage = () => {
     const postCode = ReactDaumPost(postConfig);
 
 
-    const navHandler = () => {
-
+    const apiHandler = async() => {
 
         const { address, addressDetail, imgName, ownerPhoneNum, mutualPhoneNum, mutualName } = application
 
-        if (!address || !addressDetail || !imgName || !ownerPhoneNum || !mutualPhoneNum || !mutualName) {
+   if (!address || !addressDetail || !imgName || !ownerPhoneNum || !mutualPhoneNum || !mutualName) {
 
             alert('정보를 모두 입력하여 주십시오')
             // 이건 나중에 따로 관리할 방법을 찾아보자.
             // 전체를 form으로 감싸서 필요성 체크를해줘도 된다.
         }
 
+        try {
+            const data = await api('api/v1/owner/apply', 'POST', application);
+        } catch(err) {
 
-        /// 여기서 이제 api를 쏴주면 끝난다.
-
+        }
     }
 
     // 이미지 파일 선택 핸들러
@@ -116,7 +119,7 @@ const OwnerApplyPage = () => {
                 <OwnerIndexDetail user={user} />
             </div>
 
-            <form className="owner_application" onSubmit={() => navHandler()}>
+            <form className="owner_application" onSubmit={() =>apiHandler()}>
                 <section>
                     <div >
                         <span>
@@ -278,10 +281,6 @@ const OwnerApplyPage = () => {
                                         style={{ caretColor: 'transparent', width: '260px' }}
                                         onClick={postCode}
                                         placeholder={`${application.address}`}
-                                        onInvalid={(e) => setValidity(e, '주소를 입력해주세요')}
-                                        required
-
-
                                     />
                                 </div>
                             </div>
@@ -296,8 +295,6 @@ const OwnerApplyPage = () => {
                                         style={{ width: '260px' }}
                                         name="addressDetail"
                                         onBlur={(e) => dataSet(e)}
-                                        onInvalid={(e) => setValidity(e, '주소를 입력해주세요')}
-                                        required
                                     />
                                 </div>
                             </div>
@@ -321,8 +318,6 @@ const OwnerApplyPage = () => {
                                 id="file"
                                 onChange={handleImageChange}
                                 style={{ display: 'none' }}
-                                onInvalid={(e) => setValidity(e, '업장 사진을 업로드해주세요')}
-                                required
                             />
                             <label htmlFor="file" style={{ margin: '9px 0 0 0' }}>
                                 <div className="img_item">
@@ -359,12 +354,14 @@ const OwnerApplyPage = () => {
                     <button className="apply_btn" type="submit" >
 
                         신청하기 <br />
+
                         <span style={{ fontSize: '8px' }}>(관리자의 승인이 필요합니다)</span>
 
 
                         {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함. 
                         그냥 alert 띄우기로 함...
                         */}
+
                     </button>
                 </div>
 

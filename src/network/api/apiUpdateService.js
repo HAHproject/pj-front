@@ -1,3 +1,3 @@
-import {apiClient} from "./apiClient";
+import {apiAll} from "./apiAll";
 
-export const updateUserInfo = () => apiClient.get('/api/v1/amenity')
+export const updateUserInfo = () => apiAll.get('/api/v1/amenity')

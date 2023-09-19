@@ -4,5 +4,4 @@ export const OwnerCategory = {
     객실등록: 'room',
     등록확인중: 'roomApplying',
     관리: 'management',
-
 }
