@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { apiGetresult } from "../../../network/api/apiGetService";
+import {apiGetRoomResult} from "../../../network/api/apiGetService";
 import {Link} from "react-router-dom";
 import {RoomList} from "../../../data/DataList"
 import img from "../../../images/saintHotel.jpg";
@@ -10,7 +10,7 @@ const Info = () => {
     const isLogin = useSelector((state) => state.loginCheck.loginInfo);
 
     useEffect(() => {
-        apiGetresult()
+        apiGetRoomResult()
             .then((res) => {
                 setRoomData(res.room.info);
                 console.log(res.room.info);

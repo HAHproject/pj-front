@@ -2,11 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../../network/api/apiPostService";
+
 import classes from "../auth/login.module.css"
 import logoLink from "../../images/mainLogo.png"
-import { loginInfoSet } from "../main/ducks/loginCheck";
-import { setUserdux } from "../../feature/userSlice";
+import {loginInfoSet} from "../main/ducks/loginCheck";
+import {userLogin} from "../../network/api/apiPostService";
+
 
 const Login = () => {
     const nav = useNavigate();

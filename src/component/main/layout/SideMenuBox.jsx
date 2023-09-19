@@ -10,11 +10,11 @@ const SideMenuBox = () => {
 
 
     return <>
-        <Link to="/amenity/motel"> 모텔 </Link>
-        <Link to="/amenity/hotel" > 호텔 </Link>
-        <Link to="/amenity/pension" > 펜션 </Link>
-        <Link to="/amenity/guestHouse" > 게스트하우스 </Link>
-        <Link to="/amenity/camping" > 캠핑 </Link>
+        <Link to="/acco/motel"> 모텔 </Link>
+        <Link to="/acco/hotel" > 호텔 </Link>
+        <Link to="/acco/pansion" > 펜션 </Link>
+        <Link to="/acco/guestHouse" > 게스트하우스 </Link>
+        <Link to="/acco/camping" > 캠핑 </Link>
     </>
 
 }

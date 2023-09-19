@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import classes from "./Filter.module.css"
 import "./SideMenuBox.css"
+import {useNavigate} from "react-router-dom";
 
 
 const FilterMenuBox = () => {
+    const nav = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => {
@@ -14,11 +16,17 @@ const FilterMenuBox = () => {
         setIsModalOpen(false);
     }
 
+    const deleteFilter = () => {
+        nav('/acco')
+        return
+    }
+
+
     return (
         <div>
         <div className={classes.main}>
             <div className={classes.base} style={{ marginRight: '20px' }}>
-                <p className={classes.base1}>상세조건 초기화</p>
+                <p className={classes.base1} onClick={deleteFilter}>상세조건 초기화</p>
             </div>
             <div className={classes.base1}>
                 <p onClick={openModal}>날짜</p>

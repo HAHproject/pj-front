@@ -4,11 +4,14 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
+import {apiClient} from "../../network/api/apiClient";
+
 import { Await, useNavigate } from "react-router"
-import { api, apiNoToken } from "../../network/api"
+import {api, apiNoToken } from "../../network/api"
 import { useDispatch, useSelector } from "react-redux"
-import { setUserStatus, setUserdux } from "../../feature/userSlice"
-import { OwnerCategory } from "./OwnerCategory"
+import {setUserStatus} from "../../feature/userSlice";
+import {OwnerCategory} from "./OwnerCategory";
+
 
 
 const OwnerApplyPage = () => {
@@ -384,7 +387,7 @@ const OwnerApplyPage = () => {
                         <span style={{ fontSize: '8px' }}>(관리자의 승인이 필요합니다)</span>
 
 
-                        {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함. 
+                        {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함.
                         그냥 alert 띄우기로 함...
                         */}
                     </button>
@@ -399,4 +402,4 @@ const OwnerApplyPage = () => {
 
 }
 
-export default OwnerApplyPage
+export default OwnerApplyPage;

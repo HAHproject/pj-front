@@ -10,44 +10,32 @@ import CampingIcon from '../../images/campingicon.png';
 
 const MainNavIcon = () => {
     const navigate = useNavigate();
-    const motelHandle = () => {
 
-        navigate(``);
-    };
-    const hotelHandle = () => {
-        navigate(``);
-    };
-    const pansionHandle = () => {
-        navigate(``);
-    };
-    const guestHandle = () => {
-        navigate(``);
-    };
-    const campingHandle = () => {
-        navigate(``);
+    const sectorHandler = (data) => {
+        navigate(`/acco/${data}`);
     };
 
     return (
         <IconBox>
             <Icon>
-                <Motel src={MotelIcon} onClick={motelHandle} />
+                <Motel src={MotelIcon} onClick={()=>sectorHandler("motel")} />
                 <Text>모텔</Text>
             </Icon>
             <Icon>
-                <Hotel src={HotelIcon} onClick={hotelHandle} />
-                <Text>호텔·리조트</Text>
+                <Hotel src={HotelIcon} onClick={()=>sectorHandler("hotel")} />
+                <Text>호텔</Text>
             </Icon>
             <Icon>
-                <Pansion src={PansionIcon} onClick={pansionHandle} />
+                <Pansion src={PansionIcon} onClick={()=>sectorHandler("pansion")} />
                 <Text>펜션</Text>
             </Icon>
             <Icon>
-                <Guest src={GuestIcon} onClick={guestHandle} />
+                <Guest src={GuestIcon} onClick={()=>sectorHandler("guestHouse")} />
                 <Text>게스트하우스</Text>
             </Icon>
             <Icon>
-                <Camping src={CampingIcon} onClick={campingHandle} />
-                <Text>캠핑·글램핑</Text>
+                <Camping src={CampingIcon} onClick={()=>sectorHandler("camping")} />
+                <Text>캠핑</Text>
             </Icon>
         </IconBox>
     );

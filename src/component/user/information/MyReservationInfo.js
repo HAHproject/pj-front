@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {apiGetresult} from "../../../network/api/apiGetService"
+import {apiGetAccoResult} from "../../../network/api/apiGetService"
 import {myReservation} from "../../../data/DataList";
 
 const MyReservationInfo = () => {
@@ -11,7 +11,7 @@ const MyReservationInfo = () => {
     const isLogin = useSelector(state => state.loginCheck.loginInfo);
 
     useEffect(() => {
-        apiGetresult()
+        apiGetAccoResult()
             .then((res) => {
                 setReservationData(res.data.reservation);
                 console.log(res.data.reservation);
