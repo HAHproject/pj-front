@@ -10,12 +10,6 @@ const OwnerIndexDetail = () => {
     const user = useSelector(state => state.user)
 
 
-    console.log(user)
-
-
-
-
-
     const elements = Array.from({ length: 5 }, (_, index) => (<div className='todo-point' key={index}>
 
     </div>))

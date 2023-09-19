@@ -35,7 +35,7 @@ const OwnerApplyPage = () => {
     const user = useSelector(state => state.user)
 
     const [application, setApplication] = useState({
-        ownerid: user.id,
+        ownerId: user.id,
         ownerEmail: user.email,
         ownerName: user.username,
         sectors: 'motel',
@@ -53,7 +53,7 @@ const OwnerApplyPage = () => {
 
     })
 
-    console.log('onchange의 문제')
+    console.log(user.id)
 
 
     const dataSet = (e) => {

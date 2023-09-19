@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import './NormalHeader.css'
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -9,6 +9,8 @@ import NoticeMenuBox from "../notice/NoticeMenuBox";
 
 const NormalHeader = () => {
 
+    const token = localStorage.getItem('token')
+
     const location = useLocation();
     const pathSegments = location.pathname.split('/');
     const firstSegment = pathSegments[1];
@@ -18,11 +20,25 @@ const NormalHeader = () => {
 
     const user = useSelector(state => state.user)
 
+    const nav = useNavigate()
+
 
     const [adminModal, setAdminModal] = useState(false)
     const [ownerModal, setOwnerModal] = useState(false)
     const [userModal, setUserModal] = useState(false)
     const [noticeModal, setNoticeModal] = useState(false)
+
+    const logout = () => {
+
+        localStorage.clear()
+        nav('/main')
+
+    }
+
+    const login = () => {
+        nav('/login')
+
+    }
 
 
 
@@ -69,7 +85,7 @@ const NormalHeader = () => {
                             </div>
 
                         </div>}
-                        {(user && user.role === 'OWNER') &&
+                        {(token && user.role === 'OWNER') &&
                             <div onMouseEnter={() => setOwnerModal(true)} onMouseLeave={() => setOwnerModal(false)} >
                                 <Link to="/owner" className="header-button">오너 페이지</Link>
                                 <div style={{ position: "absolute" }} >
@@ -77,6 +93,22 @@ const NormalHeader = () => {
                                 </div>
 
                             </div>}
+
+                        {token &&
+                            <div  >
+                                <span className="logout_button" onClick={() => logout()}>로그아웃</span>
+
+                            </div>
+                        }
+
+                        {!token &&
+                            <div  >
+                                <span className="logout_button" onClick={() => login()}>로그인</span>
+
+                            </div>
+
+
+                        }
 
                     </div>
                 </div>

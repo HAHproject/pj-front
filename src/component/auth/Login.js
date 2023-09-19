@@ -2,10 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import classes from "../auth/login.module.css"
 import logoLink from "../../images/mainLogo.png"
 import {loginInfoSet} from "../main/ducks/loginCheck";
 import {userLogin} from "../../network/api/apiPostService";
+
 
 const Login = () => {
     const nav = useNavigate();
@@ -18,6 +20,10 @@ const Login = () => {
             .then((res) => {
                 nav("main");
                 dispatch(loginInfoSet(res.data));
+
+                console.log(res.data)
+
+
                 alert("로그인 성공");
             })
             .catch((err) => {

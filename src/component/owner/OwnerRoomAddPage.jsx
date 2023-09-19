@@ -8,8 +8,6 @@ import {useNavigate} from "react-router-dom";
 
 const OwnerRoomAddPage = () => {
 
-    const nav = useNavigate();
-
 
     const { accoId } = useParams()
     console.log(accoId)
