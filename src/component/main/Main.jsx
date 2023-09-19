@@ -25,6 +25,7 @@ export default Main;
 const MainImage = styled.div`
   width: 930px;
   height: 480px;
+  margin-top : 100px;
   background-color: skyblue;
   background-image: url(${mainImage});
   background-size: cover;
