@@ -8,8 +8,9 @@ export const ownerRoomSlice = createSlice({
     initialState,
     reducers: {
         setRoom: (state, data) => {
+            const { num, accoId } = data.payload
 
-            state.room = [...state.room, { id: data.payload, flag: false }]
+            state.room = [...state.room, { id: num, accoId: accoId, flag: false }]
 
 
         },

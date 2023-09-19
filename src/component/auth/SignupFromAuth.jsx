@@ -3,9 +3,15 @@ import { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 
 import { api } from "../../network/api"
+<<<<<<< HEAD
 import {loginInfoSet} from "../main/ducks/loginCheck";
 import {useNavigate} from "react-router-dom";
 import {roleSignup} from "../../network/api/apiPostService";
+=======
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { setUserdux } from '../../feature/userSlice';
+>>>>>>> taeyeol
 
 const SignupFromAuth = () => {
 
@@ -14,7 +20,14 @@ const SignupFromAuth = () => {
 
     const decodedToken = jwtDecode(data)
 
+<<<<<<< HEAD
     const nav = useNavigate();
+=======
+    const nav = useNavigate()
+
+
+
+>>>>>>> taeyeol
 
 
 
@@ -25,7 +38,12 @@ const SignupFromAuth = () => {
         role: 'CUSTOMER'
 
     })
+    const dispatch = useDispatch()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> taeyeol
 
     const setUserHandler = (e) => {
 
@@ -35,12 +53,21 @@ const SignupFromAuth = () => {
     }
 
 
-    const signupHandler = async () => {
+    const signupHandler = async (e) => {
+        e.preventDefault()
+
+        alert("체크")
 
         try {
-            const data = await api('api/v1/auth/signup', 'POST', user)
+            const { data } = await api('api/v1/auth/signup', 'POST', user)
+
+            console.log(data)
+
+            dispatch(setUserdux(data))
+            nav('/main')
 
         } catch (err) {
+            alert(err)
 
         }
 
@@ -70,7 +97,11 @@ const SignupFromAuth = () => {
             <div className='signup_box'>
 
                 <div style={{ backgroundColor: '#f44250' }}>여기어때</div>
+<<<<<<< HEAD
                 <form className='signup_form' onSubmit={signupRoleHandler}>
+=======
+                <form className='signup_form' onSubmit={(e) => signupHandler(e)}>
+>>>>>>> taeyeol
                     <div>
                         <div> 이메일</div>
                         <div> {user.email}</div>
@@ -102,7 +133,11 @@ const SignupFromAuth = () => {
                         </div>
 
                     </div>
+<<<<<<< HEAD
                     <button type='submit'>확인(테스트)</button>
+=======
+                    <button type='submit'> 가입하기</button>
+>>>>>>> taeyeol
                 </form>
 
 

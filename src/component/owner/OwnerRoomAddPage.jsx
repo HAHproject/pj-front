@@ -3,9 +3,17 @@ import './OwnerRoomAddPage.css'
 import { man2 } from './data'
 import { useDispatch, useSelector } from 'react-redux'
 import { setData, setRoom } from '../../feature/ownerRoomSlice'
+import { useParams } from 'react-router'
 
 const OwnerRoomAddPage = () => {
 
+    const nav = useNavigate()
+
+
+
+
+    const { accoId } = useParams()
+    console.log(accoId)
 
     const dispatch = useDispatch()
 
@@ -14,7 +22,7 @@ const OwnerRoomAddPage = () => {
 
     const addRoomHandler = () => {
         const num = uuid()
-        dispatch(setRoom(num))
+        dispatch(setRoom({ accoId, num }))
 
     }
 
@@ -49,6 +57,9 @@ const OwnerRoomAddPage = () => {
 
         const saveResultData = room.map((data) => data.id === rId ? { ...data, flag: true } : data)
 
+
+        console.log(saveResultData)
+
         dispatch(setData(saveResultData))
 
     }
@@ -81,7 +92,7 @@ const OwnerRoomAddPage = () => {
             reader.onload = (event) => {
                 const fileAsArrayBuffer = event.target.result;
 
-                const addFileData = room.map((data) => data.id === rId ? { ...data, [name]: fileAsArrayBuffer, imgName: selectedFile.name } : data)
+                const addFileData = room.map((data) => data.id === rId ? { ...data, img: fileAsArrayBuffer, imgName: selectedFile.name, imgType: selectedFile.Type } : data)
                 dispatch(setData(addFileData))
 
 
@@ -97,7 +108,7 @@ const OwnerRoomAddPage = () => {
         <div className='room_box' key={`room/${data.id}`}>
             <div className='room_render_img' >
                 <label htmlFor={`file/${data.id}`}>
-                    {data.file ? <img src={data.file} alt="1"></img> : <img src='https://via.placeholder.com/376x226.png/f4f4f4?text=Click+here+to+upload' alt="1"></img>}
+                    {data.img ? <img src={data.img} alt="1"></img> : <img src='https://via.placeholder.com/376x226.png/f4f4f4?text=Click+here+to+upload' alt="1"></img>}
                 </label>
             </div>
 
@@ -135,6 +146,7 @@ const OwnerRoomAddPage = () => {
                                         name='roomSize'
                                         value='single'
                                         id={`single/${data.id}`}
+
                                         onClick={(e) => dataSet(e)}
                                         disabled={data.flag}
                                         defaultChecked

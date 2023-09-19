@@ -32,6 +32,7 @@ import MyPoints from "../component/user/information/MyPoints";
 import MyReservationInfo from "../component/user/information/MyReservationInfo";
 import PaymentPage from "../component/user/information/PaymentPage";
 import SignupFromAuth from "../component/auth/SignupFromAuth"
+import OwnerCheckPage from "../component/owner/OwnerCheckPage"
 
 
 
@@ -75,7 +76,8 @@ const MyRoutes = () => {
                 <Route path="/owner" element={<Owner></Owner>} >
                     <Route index element={<OwnerIndex />} />
                     <Route path="apply" element={<OwnerApplyPage />} />
-                    <Route path="room" element={<OwnerRoomPage />} />
+                    <Route path="room" element={<OwnerCheckPage />} />
+                    <Route path="room/:accoId" element={<OwnerRoomPage />} />
                     <Route path="management" element={<OwnerManagementPage />} />
                 </Route>
                 <Route path="/amenity" element={<Reservation></Reservation>}>

@@ -4,13 +4,26 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
+<<<<<<< HEAD
 import {apiClient} from "../../network/api/apiAll";
 import {api} from "../../network/api";
+=======
+import { Await, useNavigate } from "react-router"
+import { api, apiNoToken } from "../../network/api"
+import { useDispatch, useSelector } from "react-redux"
+import { setUserStatus, setUserdux } from "../../feature/userSlice"
+import { OwnerCategory } from "./OwnerCategory"
+>>>>>>> taeyeol
 
 
 const OwnerApplyPage = () => {
 
     console.log('어플라이 랜더링 테스트, ')
+
+    const dispatch = useDispatch()
+
+
+    const nav = useNavigate()
 
     // 지금 set할때마다 한번에 다 읽어서, 이걸 해결해야한다. (컴포넌트로 분리해서)
 
@@ -21,16 +34,16 @@ const OwnerApplyPage = () => {
     // 특정 페이지에서는 인풋도 안되게 변경해야하는데.. 이건 고민 좀 해봐야할듯...
     // 다시 만드는게 더 나을 수 있음.
 
-    const user = man1 // 이건 리덕스에서 받아온 상태.
+    const user = useSelector(state => state.user)
 
     const [application, setApplication] = useState({
         ownerid: user.id,
-        email: 'email',
-        ownerName: user.name,
-        sectors: '',
+        ownerEmail: user.email,
+        ownerName: user.username,
+        sectors: 'motel',
         ownerPhoneNum: '',
-        mutualName: '',
-        mutualPhoneNum: '',
+        accoName: '',
+        accoPhoneNum: '',
         address: '',
         sido: '',
         addressDetail: '',
@@ -61,13 +74,24 @@ const OwnerApplyPage = () => {
     const postCode = ReactDaumPost(postConfig);
 
 
+<<<<<<< HEAD
     const apiHandler = async() => {
+=======
+    const navHandler = async (e) => {
+        e.preventDefault()
 
-        const { address, addressDetail, imgName, ownerPhoneNum, mutualPhoneNum, mutualName } = application
+>>>>>>> taeyeol
 
+        const { address, addressDetail, imgName, ownerPhoneNum, accoPhoneNum, accoName } = application
+
+<<<<<<< HEAD
    if (!address || !addressDetail || !imgName || !ownerPhoneNum || !mutualPhoneNum || !mutualName) {
+=======
+        if (!address || !addressDetail || !imgName || !ownerPhoneNum || !accoPhoneNum || !accoName) {
+>>>>>>> taeyeol
 
-            alert('정보를 모두 입력하여 주십시오')
+
+            return alert('정보를 모두 입력하여 주십시오')
             // 이건 나중에 따로 관리할 방법을 찾아보자.
             // 전체를 form으로 감싸서 필요성 체크를해줘도 된다.
         }
@@ -76,7 +100,23 @@ const OwnerApplyPage = () => {
             const data = await api('api/v1/owner/apply', 'POST', application);
         } catch(err) {
 
+<<<<<<< HEAD
         }
+=======
+        /// 여기서 이제 api를 쏴주면 끝난다.
+        try {
+            const data = await apiNoToken('/api/v1/acco/apply', 'POST', application)
+
+            dispatch(setUserStatus(OwnerCategory.신청중))
+
+
+            nav('/owner')
+        } catch (err) {
+            alert(err)
+        }
+
+
+>>>>>>> taeyeol
     }
 
     // 이미지 파일 선택 핸들러
@@ -91,10 +131,12 @@ const OwnerApplyPage = () => {
 
             reader.readAsDataURL(selectedImage);
 
+            console.log(selectedImage)
+
             reader.onload = (event) => {
                 const fileAsBase64 = event.target.result;
 
-                setApplication({ ...application, imgName: selectedImage.name, img: fileAsBase64 });
+                setApplication({ ...application, imgName: selectedImage.name, img: fileAsBase64, imgType: selectedImage.type });
             };
 
 
@@ -116,10 +158,14 @@ const OwnerApplyPage = () => {
     return <>
         <div style={{ display: 'flex', flexDirection: "column", justifyContent: 'center' }}>
             <div className="owner_status">
-                <OwnerIndexDetail user={user} />
+                <OwnerIndexDetail />
             </div>
 
+<<<<<<< HEAD
             <form className="owner_application" onSubmit={() =>apiHandler()}>
+=======
+            <form className="owner_application" onSubmit={(e) => navHandler(e)}>
+>>>>>>> taeyeol
                 <section>
                     <div >
                         <span>
@@ -132,7 +178,7 @@ const OwnerApplyPage = () => {
                                     이메일
                                 </div>
                                 <div>
-                                    {application.email}
+                                    {application.ownerEmail}
                                 </div>
                             </div>
 
@@ -166,7 +212,7 @@ const OwnerApplyPage = () => {
                                         type="number"
                                         placeholder="대표 전화번호"
                                         className="input_phone_data"
-                                        name="mutualPhoneNum"
+                                        name="accoPhoneNum"
 
                                         // pattern="[0-9]{11}"
 
@@ -199,7 +245,7 @@ const OwnerApplyPage = () => {
                                         type='text'
                                         placeholder='사업자 등록증상 상호명'
                                         style={{ width: '260px' }}
-                                        name="mutualName"
+                                        name="accoName"
 
 
                                         onInvalid={(e) => setValidity(e, '상호명을 입력해주세요')}
@@ -281,6 +327,12 @@ const OwnerApplyPage = () => {
                                         style={{ caretColor: 'transparent', width: '260px' }}
                                         onClick={postCode}
                                         placeholder={`${application.address}`}
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> taeyeol
                                     />
                                 </div>
                             </div>
@@ -295,6 +347,10 @@ const OwnerApplyPage = () => {
                                         style={{ width: '260px' }}
                                         name="addressDetail"
                                         onBlur={(e) => dataSet(e)}
+<<<<<<< HEAD
+=======
+
+>>>>>>> taeyeol
                                     />
                                 </div>
                             </div>
@@ -318,6 +374,10 @@ const OwnerApplyPage = () => {
                                 id="file"
                                 onChange={handleImageChange}
                                 style={{ display: 'none' }}
+<<<<<<< HEAD
+=======
+
+>>>>>>> taeyeol
                             />
                             <label htmlFor="file" style={{ margin: '9px 0 0 0' }}>
                                 <div className="img_item">

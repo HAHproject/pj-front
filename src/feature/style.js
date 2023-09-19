@@ -7,6 +7,7 @@ export const Row = styled.div`
 `
 
 export const Background = styled.div`
+margin: 120px 0 0 0;
 width: 100%;
 display: flex;
 flex-direction: column;

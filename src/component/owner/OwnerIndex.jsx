@@ -3,17 +3,16 @@ import './OwnerIndex.css'
 import { man1, man2, man3, man4 } from './data'
 import { OwnerCategory } from './OwnerCategory'
 import OwnerIndexDetail from './OwnerIndexDetail'
+import { useSelector } from 'react-redux'
 
 
 const OwnerIndex = () => {
 
-    const user = man1
+    const user = useSelector(state => state.user)
 
     const nav = useNavigate()
 
     const naviHandler = (data) => {
-
-
         // nav('/owner/check')
         nav(`/owner/${data}`)
 
