@@ -1,0 +1,319 @@
+.event {
+    background: #fff
+}
+
+.event_list {
+    border-top: 1px solid rgba(0, 0, 0, 0.08)
+}
+
+.event_list li {
+    position: relative;
+    margin: 0 16px;
+    padding: 23px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    line-height: normal
+}
+
+.event_list li b {
+    display: block;
+    padding-right: 80px;
+    font-size: 18px;
+    font-weight: normal
+}
+
+.event_list li span {
+    display: block;
+    margin: 2px 0 13px 0;
+    color: rgba(0, 0, 0, 0.56)
+}
+
+.event_list li a {
+    display: block;
+    position: relative
+}
+
+.event_list li a img {
+    width: 100%
+}
+
+.event_list button {
+    display: none
+}
+
+.event_list .end b,
+.event_list .end span {
+    color: rgba(0, 0, 0, 0.38)
+}
+
+.event_list .end button {
+    display: inline-block;
+    position: absolute;
+    top: 23px;
+    right: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: rgb(0, 121, 107)
+}
+
+.event_list .end img {
+    opacity: 0.1;
+    width: 100%;
+}
+
+.event_list .end a:after {
+    display: block;
+    content: "종료된 이벤트 입니다.";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: -9px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.56);
+    text-align: center
+}
+
+.winner {
+    padding: 0 16px
+}
+
+.winner .info {
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 16px;
+    line-height: normal
+}
+
+.winner .info span {
+    display: block;
+    padding-top: 3px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.56)
+}
+
+.winner .txt {
+    padding: 21px 0;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.page {
+    margin: 8px 0;
+    padding: 0 16px;
+    background: #fff
+}
+
+.page p {
+    position: relative;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+}
+
+.page p:last-child {
+    border-bottom: none
+}
+
+.page p a {
+    display: block;
+    padding: 0 0 0 58px;
+    font-size: 16px;
+    line-height: normal
+}
+
+.page p span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: rgb(242, 17, 76);
+    margin-top: -10.5px
+}
+
+.page p b {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.87)
+}
+
+.page p em {
+    display: block;
+    margin-top: 3px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.56)
+}
+
+.align_center {
+    display: none
+}
+
+@media all and (min-width:1024px) {
+    .event_list {
+        border-top: none
+    }
+
+    .event_list li {
+        margin: 0 0 40px 0;
+        padding: 0 0 47px 0;
+        border-bottom: none
+    }
+
+    .event_list li:last-child {
+        padding-bottom: 0
+    }
+
+    .event_list li b {
+        display: block;
+        padding-right: 80px;
+        font-size: 18px;
+        font-weight: bold
+    }
+
+    .event_list li span {
+        display: block;
+        margin: 7px 0 12px 0;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.56)
+    }
+
+    .event_list li a {
+        display: block;
+        position: relative
+    }
+
+    .event_list li a img {
+        width: 100%
+    }
+
+    .event_list button {
+        display: none
+    }
+
+    .event_list .end b,
+    .event_list .end span {
+        color: rgba(0, 0, 0, 0.38)
+    }
+
+    .event_list .end button {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0;
+        border: 1px solid rgb(242, 17, 76);
+        border-radius: 4px;
+        padding: 12px 9px;
+        background: none;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(230, 28, 81)
+    }
+
+    .event_list .end img {
+        opacity: 0.1;
+        width: 100%;
+    }
+
+    .event_list .end a:after {
+        display: block;
+        content: "종료된 이벤트 입니다.";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        margin-top: -13px;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.56);
+        text-align: center
+    }
+
+    .winner {
+        padding: 0 30px
+    }
+
+    .winner .info {
+        padding: 38px 0 35px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        font-size: 18px
+    }
+
+    .winner .info span {
+        padding-top: 7px;
+        font-size: 16px
+    }
+
+    .winner .txt {
+        padding: 35px 0;
+        font-size: 16px;
+        line-height: 26px
+    }
+
+    .align_center {
+        display: block;
+        padding: 40px 0;
+        text-align: center
+    }
+
+    .align_center button,
+    .align_center a {
+        padding: 16px 44px
+    }
+
+    .page {
+        margin: 56px 0 0 0;
+        padding: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+    }
+
+    .page p {
+        padding: 27px 0
+    }
+
+    .page p a {
+        padding: 0 0 0 126px
+    }
+
+    .page p span {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -10.5px;
+        padding-right: 20px
+    }
+
+    .page p .ico_arr_up {
+        background: url('//image.goodchoice.kr/images/web_v3/ico_arr_up_5.png') 100% 50% no-repeat;
+        background-size: 18px auto
+    }
+
+    .page p .ico_arr_down {
+        background: url('//image.goodchoice.kr/images/web_v3/ico_arr_down_5.png') 100% 50% no-repeat;
+        background-size: 18px auto
+    }
+
+    .page p b {
+        display: inline-block;
+        width: 370px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: rgba(0, 0, 0, 0.87)
+    }
+
+    .page p em {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -10.5px;
+        font-size: 16px
+    }
+
+    .align_center {
+        display: block
+    }
+}
