@@ -4,16 +4,12 @@ import './OwnerApplyPage.css'
 import './Owner.css'
 import ReactDaumPost from 'react-daumpost-hook'
 import { useState } from "react"
-<<<<<<< HEAD
 import {apiClient} from "../../network/api/apiAll";
-import {api} from "../../network/api";
-=======
+
 import { Await, useNavigate } from "react-router"
-import { api, apiNoToken } from "../../network/api"
+import {api, apiNoToken } from "../../network/api"
 import { useDispatch, useSelector } from "react-redux"
-import { setUserStatus, setUserdux } from "../../feature/userSlice"
-import { OwnerCategory } from "./OwnerCategory"
->>>>>>> taeyeol
+
 
 
 const OwnerApplyPage = () => {
@@ -74,21 +70,13 @@ const OwnerApplyPage = () => {
     const postCode = ReactDaumPost(postConfig);
 
 
-<<<<<<< HEAD
-    const apiHandler = async() => {
-=======
     const navHandler = async (e) => {
         e.preventDefault()
 
->>>>>>> taeyeol
 
         const { address, addressDetail, imgName, ownerPhoneNum, accoPhoneNum, accoName } = application
 
-<<<<<<< HEAD
-   if (!address || !addressDetail || !imgName || !ownerPhoneNum || !mutualPhoneNum || !mutualName) {
-=======
         if (!address || !addressDetail || !imgName || !ownerPhoneNum || !accoPhoneNum || !accoName) {
->>>>>>> taeyeol
 
 
             return alert('정보를 모두 입력하여 주십시오')
@@ -96,13 +84,7 @@ const OwnerApplyPage = () => {
             // 전체를 form으로 감싸서 필요성 체크를해줘도 된다.
         }
 
-        try {
-            const data = await api('api/v1/owner/apply', 'POST', application);
-        } catch(err) {
 
-<<<<<<< HEAD
-        }
-=======
         /// 여기서 이제 api를 쏴주면 끝난다.
         try {
             const data = await apiNoToken('/api/v1/acco/apply', 'POST', application)
@@ -116,7 +98,6 @@ const OwnerApplyPage = () => {
         }
 
 
->>>>>>> taeyeol
     }
 
     // 이미지 파일 선택 핸들러
@@ -161,11 +142,7 @@ const OwnerApplyPage = () => {
                 <OwnerIndexDetail />
             </div>
 
-<<<<<<< HEAD
-            <form className="owner_application" onSubmit={() =>apiHandler()}>
-=======
             <form className="owner_application" onSubmit={(e) => navHandler(e)}>
->>>>>>> taeyeol
                 <section>
                     <div >
                         <span>
@@ -327,12 +304,9 @@ const OwnerApplyPage = () => {
                                         style={{ caretColor: 'transparent', width: '260px' }}
                                         onClick={postCode}
                                         placeholder={`${application.address}`}
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> taeyeol
                                     />
                                 </div>
                             </div>
@@ -347,10 +321,7 @@ const OwnerApplyPage = () => {
                                         style={{ width: '260px' }}
                                         name="addressDetail"
                                         onBlur={(e) => dataSet(e)}
-<<<<<<< HEAD
-=======
 
->>>>>>> taeyeol
                                     />
                                 </div>
                             </div>
@@ -374,10 +345,7 @@ const OwnerApplyPage = () => {
                                 id="file"
                                 onChange={handleImageChange}
                                 style={{ display: 'none' }}
-<<<<<<< HEAD
-=======
 
->>>>>>> taeyeol
                             />
                             <label htmlFor="file" style={{ margin: '9px 0 0 0' }}>
                                 <div className="img_item">
@@ -414,14 +382,12 @@ const OwnerApplyPage = () => {
                     <button className="apply_btn" type="submit" >
 
                         신청하기 <br />
-
                         <span style={{ fontSize: '8px' }}>(관리자의 승인이 필요합니다)</span>
 
 
-                        {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함. 
+                        {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함.
                         그냥 alert 띄우기로 함...
                         */}
-
                     </button>
                 </div>
 
@@ -434,4 +400,4 @@ const OwnerApplyPage = () => {
 
 }
 
-export default OwnerApplyPage
+export default OwnerApplyPage;
