@@ -1,13 +1,27 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OwnerMeneBox from "./OwnerMenuBox";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 
 
 const Owner = () => {
 
+    const token = localStorage.getItem('token')
+    const nav = useNavigate()
+
+
+
+
     const { isSmallScreen } = useSelector((state) => state.widthSizes)
+    if (!token) {
+        alert('로그인을 해주세요')
+
+        nav('/main')
+        return
+
+
+    }
 
     // 여기 있는 css 전부 common.css 로 빼도 될거같은데 ... 나중에 해보자.
 

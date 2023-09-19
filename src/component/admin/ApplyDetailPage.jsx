@@ -187,15 +187,13 @@ const ApplyDetailPage = () => {
 
                     <div className="apply_btn_section">
 
-                        <button className="apply_btn" type="submit" >
+                        {data.status === "미승인" ? <button className="apply_btn" type="submit" >
 
                             승인하기 <br />
 
+                        </button> : <div className="applyed"> 이미 승인 되었습니다</div>}
 
-                            {/* 여기선 필수 사항을 입력 안했을 시에, 입력하라고 해야함. 
-                        그냥 alert 띄우기로 함...
-                        */}
-                        </button>
+
                     </div>
 
                 </form>

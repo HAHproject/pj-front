@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import { useDispatch } from "react-redux";
 import { setUserdux } from "../../feature/userSlice";
+import { Button } from "bootstrap";
 
 const Check = () => {
 
@@ -47,6 +48,8 @@ const Check = () => {
             if (data) {
                 nav(data.urlRedirect
                 )
+
+
             }
 
 
@@ -65,6 +68,8 @@ const Check = () => {
 
 
     return <>
+
+
 
     </>
 }

@@ -60,6 +60,14 @@
     font-size: 18px;
 }
 
+.logout_button {
+    cursor: pointer;
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .back_ground {
     height: 211px;
     background: #f7323f;
@@ -98,10 +106,12 @@
 
 }
 
-.fast_menu.scroll a {
+.fast_menu.scroll a,
+.fast_menu.scroll span {
     color: rgba(0, 0, 0, 0.87);
 
 }
+
 
 
 .fast_menu a {

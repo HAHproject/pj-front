@@ -7,9 +7,6 @@ import { useParams } from 'react-router'
 
 const OwnerRoomAddPage = () => {
 
-    const nav = useNavigate()
-
-
 
 
     const { accoId } = useParams()
